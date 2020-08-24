@@ -3,24 +3,31 @@ import java.util.Scanner;
 
 public class CovidBot {
     public static void main(String[] args) {
-        System.out.println("Hello, I'm CovidBot! :)");
-        System.out.println("Since it's Covid and we don't get to see each other face to face (how sad),\n" +
-                "I'm here to entertain you a little!" +
-                "Type whatever you want and I'll echo you :P\n" +
-                "Once you've realise you're annoyed, simply type 'bye' and I'll stop disturbing you!\n");
+        System.out.println("Hello, I'm CovidBot, your To Do List! :)");
+        System.out.println("Enter a To Do:\n");
 
         String line;
         Scanner in = new Scanner(System.in);
+
+        // Create array to store To Dos
+        String[] toDos = new String[100];
+        int toDosCount = 0;
+
         while (in.hasNextLine()) {
             line = in.nextLine();
-
-            if (line.equals("bye")) {
-                System.out.println("Oh no, guess you're officially annoyed, I'm sorry...\n" +
-                        "Perhaps when you're bored again one day, you'll come back to chat with me though! Bye for now!:D\n");
-                break;
-            } else {
-                System.out.println(line);
+            if (line.equals("list")) {
+                for (int i=0; i<toDosCount; i++) {
+                    System.out.println((i+1) + ". " + toDos[i]);
+                }
                 System.out.println();
+            } else if (line.equals("bye")) {
+                System.out.println("\nHope you found this To Do app useful :)\n" +
+                        "See you again!\n");
+            } else {
+                toDos[toDosCount] = line;
+                System.out.println("added: " + toDos[toDosCount]);
+                System.out.println();
+                toDosCount++;
             }
         }
     }
