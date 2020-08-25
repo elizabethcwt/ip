@@ -26,12 +26,17 @@ public class CovidBot {
                     isInteger = 0;
                 }
 
-                if(isInteger == 1) {
+                if (isInteger == 1) {
                     int d = Integer.parseInt(checkDone[1]);
-                    toDos[d-1].markAsDone();
+                    toDos[d - 1].markAsDone();
                     System.out.println("Good job! :) I've marked this task as complete:\n");
-                    System.out.println("\t[" + toDos[d-1].getStatusIcon() + "] " + toDos[d-1].description);
+                    System.out.println("\t[" + toDos[d - 1].getStatusIcon() + "] " + toDos[d - 1].description);
                     System.out.println();
+                } else {
+                    toDos[toDosCount] = new CovidBotTask(line);
+                    System.out.println("added: " + toDos[toDosCount].description);
+                    System.out.println();
+                    toDosCount++;
                 }
             } else {
                 if (line.equals("list")) {
