@@ -27,11 +27,11 @@ public class friendlyBot {
                     isInteger = 0;
                 }
 
-                if(isInteger == 1) {
+                if (isInteger == 1) {
                     int d = Integer.parseInt(checkDone[1]);
-                    tasks[d-1].markAsDone();
+                    tasks[d - 1].markAsDone();
                     System.out.println("Good job! :) I've marked this task as complete:\n");
-                    System.out.println("\t" + tasks[d-1].toString());
+                    System.out.println("\t" + tasks[d - 1].toString());
                     System.out.println();
                 } else {
                     tasks[taskCount] = new friendlyBotTask(line);
@@ -54,38 +54,40 @@ public class friendlyBot {
                     String lineFirstWord = line.split(" ")[0];
 
                     switch (lineFirstWord) {
-                    case "todo":
-                        tasks[taskCount] = new friendlyBotTodo(line);
-                        tasks[taskCount].description = line.substring(5);
-                        System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
-                                "\nNow you have " + (taskCount+1) + " task(s) in your list.");
-                        taskCount++;
-                        break;
-                    case "deadline":
-                        int dlBy = line.indexOf("/by") + 4;
-                        String by = line.substring(dlBy);
-                        tasks[taskCount] = new friendlyBotDeadline(line, by);
-                        tasks[taskCount].description = line.substring(9, dlBy-4);
-                        System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
-                                "\nNow you have " + (taskCount+1) + " task(s) in your list.");
-                        taskCount++;
-                        break;
-                    case "event":
-                        int eAt = line.indexOf("/at") + 4;
-                        String at = line.substring(eAt);
-                        tasks[taskCount] = new friendlyBotEvent(line, at);
-                        tasks[taskCount].description = line.substring(6, eAt-4);
-                        System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
-                                "\nNow you have " + (taskCount+1) + " task(s) in your list.");
-                        taskCount++;
-                        break;
-                    default:
-                        System.out.println("You've entered an invalid command :(");
-                        break;
+                        case "todo":
+                            tasks[taskCount] = new friendlyBotTodo(line);
+                            tasks[taskCount].description = line.substring(5);
+                            taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                            break;
+                        case "deadline":
+                            int dlBy = line.indexOf("/by") + 4;
+                            String by = line.substring(dlBy);
+                            tasks[taskCount] = new friendlyBotDeadline(line, by);
+                            tasks[taskCount].description = line.substring(9, dlBy - 4);
+                            taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                            break;
+                        case "event":
+                            int eAt = line.indexOf("/at") + 4;
+                            String at = line.substring(eAt);
+                            tasks[taskCount] = new friendlyBotEvent(line, at);
+                            tasks[taskCount].description = line.substring(6, eAt - 4);
+                            taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                            break;
+                        default:
+                            System.out.println("You've entered an invalid command :(");
+                            break;
                     }
                 }
                 System.out.println();
             }
         }
+    }
+
+    // Refactored from main
+    private static int displayNewTask(int taskCount, friendlyBotTask task) {
+        System.out.println("Great! I've added this task:\n\t" + task.toString() +
+                "\nNow you have " + (taskCount + 1) + " task(s) in your list.");
+        taskCount++;
+        return taskCount;
     }
 }
