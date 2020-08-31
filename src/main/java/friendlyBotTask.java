@@ -1,8 +1,8 @@
-public class CovidBotTask {
+public class friendlyBotTask {
     private boolean isDone;
     protected String description;
 
-    public CovidBotTask(String description) {
+    public friendlyBotTask(String description) {
         this.description = description;
         this.isDone = false;
     }

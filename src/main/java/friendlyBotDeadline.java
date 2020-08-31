@@ -1,8 +1,8 @@
-public class CovidBotDeadline extends CovidBotTask{
+public class friendlyBotDeadline extends friendlyBotTask {
 
     protected String by;
 
-    public CovidBotDeadline (String description, String by) {
+    public friendlyBotDeadline(String description, String by) {
         super(description);
         this.by = by;
     }

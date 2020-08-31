@@ -1,7 +1,7 @@
-public class CovidBotEvent extends CovidBotTask{
+public class friendlyBotEvent extends friendlyBotTask {
     protected String at;
 
-    public CovidBotEvent (String description, String at) {
+    public friendlyBotEvent(String description, String at) {
         super(description);
         this.at = at;
     }

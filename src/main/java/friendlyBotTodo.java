@@ -1,5 +1,5 @@
-public class CovidBotTodo extends CovidBotTask {
-    public CovidBotTodo (String description) {
+public class friendlyBotTodo extends friendlyBotTask {
+    public friendlyBotTodo(String description) {
         super(description);
         this.description = description;
     }

@@ -1,20 +1,16 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
-public class CovidBot {
-    public void handleTasks () {
+public class friendlyBot {
 
-    }
     public static void main(String[] args) {
-        System.out.println("Hello, I'm CovidBot, your To Do List! :)");
+        System.out.println("Hello, I'm FriendlyBot, your Friendly To Do List! :)");
         System.out.println("Enter a To Do:\n");
 
         String line;
         Scanner in = new Scanner(System.in);
 
         // Create array to store Tasks
-        CovidBotTask[] tasks = new CovidBotTask[100];
+        friendlyBotTask[] tasks = new friendlyBotTask[100];
         int taskCount = 0;
 
         while (in.hasNextLine()) {
@@ -38,7 +34,7 @@ public class CovidBot {
                     System.out.println("\t" + tasks[d-1].toString());
                     System.out.println();
                 } else {
-                    tasks[taskCount] = new CovidBotTask(line);
+                    tasks[taskCount] = new friendlyBotTask(line);
                     System.out.println("added: " + tasks[taskCount].description);
                     System.out.println();
                     taskCount++;
@@ -59,7 +55,7 @@ public class CovidBot {
 
                     switch (lineFirstWord) {
                     case "todo":
-                        tasks[taskCount] = new CovidBotTodo(line);
+                        tasks[taskCount] = new friendlyBotTodo(line);
                         tasks[taskCount].description = line.substring(5);
                         System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
                                 "\nNow you have " + (taskCount+1) + " task(s) in your list.");
@@ -68,7 +64,7 @@ public class CovidBot {
                     case "deadline":
                         int dlBy = line.indexOf("/by") + 4;
                         String by = line.substring(dlBy);
-                        tasks[taskCount] = new CovidBotDeadline(line, by);
+                        tasks[taskCount] = new friendlyBotDeadline(line, by);
                         tasks[taskCount].description = line.substring(9, dlBy-4);
                         System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
                                 "\nNow you have " + (taskCount+1) + " task(s) in your list.");
@@ -77,7 +73,7 @@ public class CovidBot {
                     case "event":
                         int eAt = line.indexOf("/at") + 4;
                         String at = line.substring(eAt);
-                        tasks[taskCount] = new CovidBotEvent(line, at);
+                        tasks[taskCount] = new friendlyBotEvent(line, at);
                         tasks[taskCount].description = line.substring(6, eAt-4);
                         System.out.println("Great! I've added this task:\n\t" + tasks[taskCount].toString() +
                                 "\nNow you have " + (taskCount+1) + " task(s) in your list.");
