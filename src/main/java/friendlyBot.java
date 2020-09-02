@@ -17,17 +17,17 @@ public class friendlyBot {
             line = in.nextLine();
 
             // Create new array to check for 'done (no.)' input
-            String[] checkDone = line.split(" ", 3);
+            String[] checkDone = line.split(" ", 2);
 
             if (checkDone[0].equals("done")) {
-                int isInteger = 1;
+                boolean isInteger = true;
                 try {
                     Integer.parseInt(checkDone[1]);
                 } catch (NumberFormatException nfe) {
-                    isInteger = 0;
+                    isInteger = false;
                 }
 
-                if (isInteger == 1) {
+                if (isInteger == true) {
                     int d = Integer.parseInt(checkDone[1]);
                     tasks[d - 1].markAsDone();
                     System.out.println("Good job! :) I've marked this task as complete:\n");
