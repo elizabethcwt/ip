@@ -34,10 +34,7 @@ public class friendlyBot {
                     System.out.println("\t" + tasks[d - 1].toString());
                     System.out.println();
                 } else {
-                    tasks[taskCount] = new friendlyBotTask(line);
-                    System.out.println("added: " + tasks[taskCount].description);
-                    System.out.println();
-                    taskCount++;
+                    invalidCommand();
                 }
             } else {
                 if (line.equals("list")) {
@@ -74,13 +71,18 @@ public class friendlyBot {
                             taskCount = displayNewTask(taskCount, tasks[taskCount]);
                             break;
                         default:
-                            System.out.println("You've entered an invalid command :(");
+                            invalidCommand();
                             break;
                     }
                 }
                 System.out.println();
             }
         }
+    }
+
+    // Refactored from main
+    private static void invalidCommand() {
+        System.out.println("You've entered an invalid command :(");
     }
 
     // Refactored from main
