@@ -1,8 +1,8 @@
-public class friendlyBotDeadline extends friendlyBotTask {
+public class FriendlyBotDeadline extends FriendlyBotTask {
 
     protected String by;
 
-    public friendlyBotDeadline(String description, String by) {
+    public FriendlyBotDeadline(String description, String by) {
         super(description);
         this.by = by;
     }

@@ -1,5 +1,5 @@
-public class friendlyBotTodo extends friendlyBotTask {
-    public friendlyBotTodo(String description) {
+public class FriendlyBotTodo extends FriendlyBotTask {
+    public FriendlyBotTodo(String description) {
         super(description);
         this.description = description;
     }

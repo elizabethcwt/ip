@@ -1,8 +1,8 @@
-public class friendlyBotTask {
+public class FriendlyBotTask {
     private boolean isDone;
     protected String description;
 
-    public friendlyBotTask(String description) {
+    public FriendlyBotTask(String description) {
         this.description = description;
         this.isDone = false;
     }

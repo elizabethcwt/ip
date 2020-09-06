@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class friendlyBot {
+public class FriendlyBot {
 
     public static void main(String[] args) {
         System.out.println("Hello, I'm FriendlyBot, your Friendly To Do List! :)");
@@ -10,7 +10,7 @@ public class friendlyBot {
         Scanner in = new Scanner(System.in);
 
         // Create array to store Tasks
-        friendlyBotTask[] tasks = new friendlyBotTask[100];
+        FriendlyBotTask[] tasks = new FriendlyBotTask[100];
         int taskCount = 0;
 
         while (in.hasNextLine()) {
@@ -52,21 +52,21 @@ public class friendlyBot {
 
                     switch (lineFirstWord) {
                         case "todo":
-                            tasks[taskCount] = new friendlyBotTodo(line);
+                            tasks[taskCount] = new FriendlyBotTodo(line);
                             tasks[taskCount].description = line.substring(5);
                             taskCount = displayNewTask(taskCount, tasks[taskCount]);
                             break;
                         case "deadline":
                             int dlBy = line.indexOf("/by") + 4;
                             String by = line.substring(dlBy);
-                            tasks[taskCount] = new friendlyBotDeadline(line, by);
+                            tasks[taskCount] = new FriendlyBotDeadline(line, by);
                             tasks[taskCount].description = line.substring(9, dlBy - 4);
                             taskCount = displayNewTask(taskCount, tasks[taskCount]);
                             break;
                         case "event":
                             int eAt = line.indexOf("/at") + 4;
                             String at = line.substring(eAt);
-                            tasks[taskCount] = new friendlyBotEvent(line, at);
+                            tasks[taskCount] = new FriendlyBotEvent(line, at);
                             tasks[taskCount].description = line.substring(6, eAt - 4);
                             taskCount = displayNewTask(taskCount, tasks[taskCount]);
                             break;
@@ -86,7 +86,7 @@ public class friendlyBot {
     }
 
     // Refactored from main
-    private static int displayNewTask(int taskCount, friendlyBotTask task) {
+    private static int displayNewTask(int taskCount, FriendlyBotTask task) {
         System.out.println("Great! I've added this task:\n\t" + task.toString() +
                 "\nNow you have " + (taskCount + 1) + " task(s) in your list.");
         taskCount++;
