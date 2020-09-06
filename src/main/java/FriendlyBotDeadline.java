@@ -1,5 +1,4 @@
 public class FriendlyBotDeadline extends FriendlyBotTask {
-
     protected String by;
 
     public FriendlyBotDeadline(String description, String by) {

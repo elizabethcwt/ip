@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class FriendlyBot {
 
     public static void main(String[] args) {
-        System.out.println("Hello, I'm FriendlyBot, your Friendly To Do List! :)");
-        System.out.println("Enter a To Do:\n");
+        System.out.println("Hello, I'm FriendlyBot, your Friendly To Do List! :)\n" +
+                "Enter a To Do:\n");
 
         String line;
         Scanner in = new Scanner(System.in);
@@ -30,9 +30,8 @@ public class FriendlyBot {
                 if (isInteger == true) {
                     int d = Integer.parseInt(checkDone[1]);
                     tasks[d - 1].markAsDone();
-                    System.out.println("Good job! :) I've marked this task as complete:\n");
-                    System.out.println("\t" + tasks[d - 1].toString());
-                    System.out.println();
+                    System.out.println("Good job! :) I've marked this task as complete:\n\n\t" +
+                            tasks[d - 1].toString() + "\n");
                 } else {
                     invalidCommand();
                 }
