@@ -52,13 +52,14 @@ public class FriendlyBot {
                                 tasks[taskCount].description = line.substring(5);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
-                            }
-                            catch (StringIndexOutOfBoundsException e) {
+                            } catch (StringIndexOutOfBoundsException e) {
                                 System.out.println("Oops! You can't leave the description of your Todo empty. 😞");
-                            };
+                            }
+                            ;
                             break;
                         case "deadline":
                             try {
+                                checkForDescriptionAndDeadline(line);
                                 int deadlineBy = line.indexOf("/by") + 4;
                                 String by = line.substring(deadlineBy);
                                 tasks[taskCount] = new FriendlyBotDeadline(line, by);
@@ -66,11 +67,11 @@ public class FriendlyBot {
                                 checkForDescription(tasks, taskCount);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
-                            }
-                            catch (StringIndexOutOfBoundsException e) {
-                                System.out.println("Oops! Have you included a description AND a deadline using /by? 🧐");
-                            }
-                            catch (noDescriptionException nde) {
+                            } catch (noDescriptionAndDeadlineException ndde) {
+                                System.out.println("Oops! Are you missing a description AND a deadline?? 😱");
+                            } catch (StringIndexOutOfBoundsException e) {
+                                System.out.println("Oops! Are you missing a deadline? 🧐 (use '/by'!)");
+                            } catch (noDescriptionException nde) {
                                 System.out.println("Oops! Are you missing a description for your deadline? 🧐");
                             }
                             break;
@@ -91,11 +92,20 @@ public class FriendlyBot {
         }
     }
 
+    private static void checkForDescriptionAndDeadline(String line) throws noDescriptionAndDeadlineException {
+
+        String lineWithoutSpaces = line.replaceAll("\\s", "");
+
+        if (lineWithoutSpaces.length() == 8) {
+            throw new noDescriptionAndDeadlineException();
+        }
+    }
+
     private static void checkForDescription(FriendlyBotTask[] tasks, int taskCount) throws noDescriptionException {
 
         boolean containsLetter = tasks[taskCount].description.matches(".*[a-zA-Z]+.*");
 
-        if(!containsLetter) {
+        if (!containsLetter) {
             throw new noDescriptionException();
         }
     }
