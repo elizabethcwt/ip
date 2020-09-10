@@ -63,12 +63,15 @@ public class FriendlyBot {
                                 String by = line.substring(deadlineBy);
                                 tasks[taskCount] = new FriendlyBotDeadline(line, by);
                                 tasks[taskCount].description = line.substring(9, deadlineBy - 4);
-                                //todo: implement code to deal with deadline w/o description but w deadline
+                                checkForDescription(tasks, taskCount);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
                             }
                             catch (StringIndexOutOfBoundsException e) {
                                 System.out.println("Oops! Have you included a description AND a deadline using /by? 🧐");
+                            }
+                            catch (noDescriptionException nde) {
+                                System.out.println("Oops! Are you missing a description for your deadline? 🧐");
                             }
                             break;
                         case "event":
@@ -85,6 +88,15 @@ public class FriendlyBot {
                 }
                 System.out.println();
             }
+        }
+    }
+
+    private static void checkForDescription(FriendlyBotTask[] tasks, int taskCount) throws noDescriptionException {
+
+        boolean containsLetter = tasks[taskCount].description.matches(".*[a-zA-Z]+.*");
+
+        if(!containsLetter) {
+            throw new noDescriptionException();
         }
     }
 
