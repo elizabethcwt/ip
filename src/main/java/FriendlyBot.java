@@ -48,7 +48,6 @@ public class FriendlyBot {
                     switch (lineWords[0]) {
                         case "todo":
                             try {
-                                checkTodoValidity(lineWords);
                                 tasks[taskCount] = new FriendlyBotTodo(line);
                                 tasks[taskCount].description = line.substring(5);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
@@ -59,11 +58,18 @@ public class FriendlyBot {
                             };
                             break;
                         case "deadline":
-                            int deadlineBy = line.indexOf("/by") + 4;
-                            String by = line.substring(deadlineBy);
-                            tasks[taskCount] = new FriendlyBotDeadline(line, by);
-                            tasks[taskCount].description = line.substring(9, deadlineBy - 4);
-                            taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                            try {
+                                int deadlineBy = line.indexOf("/by") + 4;
+                                String by = line.substring(deadlineBy);
+                                tasks[taskCount] = new FriendlyBotDeadline(line, by);
+                                tasks[taskCount].description = line.substring(9, deadlineBy - 4);
+                                //todo: implement code to deal with deadline w/o description but w deadline
+                                taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                                break;
+                            }
+                            catch (StringIndexOutOfBoundsException e) {
+                                System.out.println("Oops! Have you included a description AND a deadline using /by? 🧐");
+                            }
                             break;
                         case "event":
                             int eventAt = line.indexOf("/at") + 4;
@@ -79,12 +85,6 @@ public class FriendlyBot {
                 }
                 System.out.println();
             }
-        }
-    }
-
-    public static void checkTodoValidity(String[] lineWords) throws StringIndexOutOfBoundsException {
-        if (lineWords.length==1) {
-            throw new StringIndexOutOfBoundsException();
         }
     }
 
