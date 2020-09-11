@@ -1,5 +1,3 @@
-package bots;
-
 import java.util.Scanner;
 
 public class FriendlyBot {

@@ -1,5 +1,3 @@
-package bots;
-
 public class FriendlyBotEvent extends FriendlyBotTask {
     protected String at;
 

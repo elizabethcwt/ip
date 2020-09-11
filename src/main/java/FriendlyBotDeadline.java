@@ -1,5 +1,3 @@
-package bots;
-
 public class FriendlyBotDeadline extends FriendlyBotTask {
     protected String by;
 
