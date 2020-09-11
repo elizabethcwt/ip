@@ -64,25 +64,37 @@ public class FriendlyBot {
                                 checkForDescriptionAndDeadline(line);
                                 int deadlineBy = line.indexOf("/by") + 4;
                                 String by = line.substring(deadlineBy);
+                                checkForDeadlineDescription(line, deadlineBy);
                                 tasks[taskCount] = new FriendlyBotDeadline(line, by);
                                 tasks[taskCount].description = line.substring(9, deadlineBy - 4);
-                                checkForDescription(tasks, taskCount);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
                             } catch (NoDescriptionAndDeadlineException ndde) {
                                 System.out.println("Oops! Are you missing a description AND a deadline?? 😱");
                             } catch (StringIndexOutOfBoundsException e) {
                                 System.out.println("Oops! Are you missing a deadline? 🧐 (use '/by'!)");
-                            } catch (NoDescriptionException nde) {
+                            } catch (NoDeadlineDescriptionException nde) {
                                 System.out.println("Oops! Are you missing a description for your deadline? 🧐");
                             }
                             break;
                         case "event":
-                            int eventAt = line.indexOf("/at") + 4;
-                            String at = line.substring(eventAt);
-                            tasks[taskCount] = new FriendlyBotEvent(line, at);
-                            tasks[taskCount].description = line.substring(6, eventAt - 4);
-                            taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                            try {
+                                checkForDescriptionAndEventAt(line);
+                                int eventAt = line.indexOf("/at") + 4;
+                                String at = line.substring(eventAt);
+                                checkForEventDescription(line, eventAt);
+                                tasks[taskCount] = new FriendlyBotEvent(line, at);
+                                tasks[taskCount].description = line.substring(6, eventAt - 4);
+                                taskCount = displayNewTask(taskCount, tasks[taskCount]);
+                                break;
+                            } catch (NoDescriptionAndEventAtException ndaea) {
+                                System.out.println("Oops! Are you missing a description AND a time/place for your " +
+                                        "event? 😱");
+                            } catch (StringIndexOutOfBoundsException e) {
+                                System.out.println("Oops! Are you missing a time/place for your event? 🧐 (use '/at'!)");
+                            } catch (NoEventDescriptionException nde) {
+                                System.out.println("Oops! Are you missing a description for your event? 🧐");
+                            }
                             break;
                         default:
                             invalidCommand();
@@ -91,6 +103,15 @@ public class FriendlyBot {
                 }
                 System.out.println();
             }
+        }
+    }
+
+    private static void checkForDescriptionAndEventAt(String line) throws NoDescriptionAndEventAtException {
+
+        String lineWithoutSpaces = line.replaceAll("\\s", "");
+
+        if (lineWithoutSpaces.length() == 5) {
+            throw new NoDescriptionAndEventAtException();
         }
     }
 
@@ -112,12 +133,21 @@ public class FriendlyBot {
         }
     }
 
-    private static void checkForDescription(FriendlyBotTask[] tasks, int taskCount) throws NoDescriptionException {
+    private static void checkForDeadlineDescription(String line, int deadlineBy) throws NoDeadlineDescriptionException {
 
-        boolean containsLetter = tasks[taskCount].description.matches(".*[a-zA-Z]+.*");
+        boolean containsLetter = line.substring(8, deadlineBy-4).matches(".*[a-zA-Z]+.*");
 
         if (!containsLetter) {
-            throw new NoDescriptionException();
+            throw new NoDeadlineDescriptionException();
+        }
+    }
+
+    private static void checkForEventDescription(String line, int eventAt) throws NoEventDescriptionException {
+
+        boolean containsLetter = line.substring(5, eventAt-4).matches(".*[a-zA-Z]+.*");
+
+        if (!containsLetter) {
+            throw new NoEventDescriptionException();
         }
     }
 
