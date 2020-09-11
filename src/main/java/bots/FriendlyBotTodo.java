@@ -1,3 +1,5 @@
+package bots;
+
 public class FriendlyBotTodo extends FriendlyBotTask {
     public FriendlyBotTodo(String description) {
         super(description);

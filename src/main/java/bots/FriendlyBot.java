@@ -1,3 +1,5 @@
+package bots;
+
 import java.util.Scanner;
 
 public class FriendlyBot {
@@ -48,16 +50,16 @@ public class FriendlyBot {
                     switch (lineWords[0]) {
                         case "todo":
                             try {
+                                checkForTodoDescription(line);
                                 tasks[taskCount] = new FriendlyBotTodo(line);
                                 tasks[taskCount].description = line.substring(5);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
-                            } catch (StringIndexOutOfBoundsException e) {
+                            } catch (NoTodoDescriptionException ntde) {
                                 System.out.println("Oops! You can't leave the description of your Todo empty. 😞");
-                            }
-                            ;
+                            };
                             break;
-                        case "deadline":
+                        case "bots":
                             try {
                                 checkForDescriptionAndDeadline(line);
                                 int deadlineBy = line.indexOf("/by") + 4;
@@ -67,15 +69,15 @@ public class FriendlyBot {
                                 checkForDescription(tasks, taskCount);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
-                            } catch (noDescriptionAndDeadlineException ndde) {
+                            } catch (NoDescriptionAndDeadlineException ndde) {
                                 System.out.println("Oops! Are you missing a description AND a deadline?? 😱");
                             } catch (StringIndexOutOfBoundsException e) {
                                 System.out.println("Oops! Are you missing a deadline? 🧐 (use '/by'!)");
-                            } catch (noDescriptionException nde) {
+                            } catch (NoDescriptionException nde) {
                                 System.out.println("Oops! Are you missing a description for your deadline? 🧐");
                             }
                             break;
-                        case "event":
+                        case "exceptions":
                             int eventAt = line.indexOf("/at") + 4;
                             String at = line.substring(eventAt);
                             tasks[taskCount] = new FriendlyBotEvent(line, at);
@@ -92,21 +94,30 @@ public class FriendlyBot {
         }
     }
 
-    private static void checkForDescriptionAndDeadline(String line) throws noDescriptionAndDeadlineException {
+    private static void checkForDescriptionAndDeadline(String line) throws NoDescriptionAndDeadlineException {
 
         String lineWithoutSpaces = line.replaceAll("\\s", "");
 
         if (lineWithoutSpaces.length() == 8) {
-            throw new noDescriptionAndDeadlineException();
+            throw new NoDescriptionAndDeadlineException();
         }
     }
 
-    private static void checkForDescription(FriendlyBotTask[] tasks, int taskCount) throws noDescriptionException {
+    private static void checkForTodoDescription(String line) throws NoTodoDescriptionException {
+
+        String lineWithoutSpaces = line.replaceAll("\\s", "");
+
+        if (lineWithoutSpaces.length() == 4) {
+            throw new NoTodoDescriptionException();
+        }
+    }
+
+    private static void checkForDescription(FriendlyBotTask[] tasks, int taskCount) throws NoDescriptionException {
 
         boolean containsLetter = tasks[taskCount].description.matches(".*[a-zA-Z]+.*");
 
         if (!containsLetter) {
-            throw new noDescriptionException();
+            throw new NoDescriptionException();
         }
     }
 
