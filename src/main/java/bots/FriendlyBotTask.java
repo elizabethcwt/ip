@@ -1,3 +1,5 @@
+package bots;
+
 public class FriendlyBotTask {
     private boolean isDone;
     protected String description;

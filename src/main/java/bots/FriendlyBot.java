@@ -1,3 +1,5 @@
+package bots;
+
 import java.util.Scanner;
 
 public class FriendlyBot {
@@ -57,7 +59,7 @@ public class FriendlyBot {
                                 System.out.println("Oops! You can't leave the description of your Todo empty. 😞");
                             };
                             break;
-                        case "bots":
+                        case "deadline":
                             try {
                                 checkForDescriptionAndDeadline(line);
                                 int deadlineBy = line.indexOf("/by") + 4;
@@ -75,7 +77,7 @@ public class FriendlyBot {
                                 System.out.println("Oops! Are you missing a description for your deadline? 🧐");
                             }
                             break;
-                        case "exceptions":
+                        case "event":
                             int eventAt = line.indexOf("/at") + 4;
                             String at = line.substring(eventAt);
                             tasks[taskCount] = new FriendlyBotEvent(line, at);
