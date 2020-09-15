@@ -1,12 +1,13 @@
 package bots;
 
-public class FriendlyBotTask {
-    private boolean isDone;
+import java.io.Serializable;
+
+public class FriendlyBotTask implements Serializable {
+    protected boolean isDone;
     protected String description;
 
     public FriendlyBotTask(String description) {
         this.description = description;
-        this.isDone = false;
     }
 
     public boolean getDone() {

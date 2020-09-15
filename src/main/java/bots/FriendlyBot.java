@@ -1,21 +1,35 @@
 package bots;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FriendlyBot {
+    // Creating a new text file to store task list
+    private static String PATH = new File("").getAbsolutePath();
+    static File f = new File(PATH + "/friendlyBot.txt");
 
-    public static void main(String[] args) {
+    // Create array to store Tasks
+    private static FriendlyBotTask[] tasks = new FriendlyBotTask[100];
+    private static int taskCount = 0;
+
+    public static void main(String[] args) throws IOException {
+
+        // Scanning/Reading info. into text file
+        try {
+            taskCount = FriendlyTaskManager.readFile(tasks, taskCount, f);
+        } catch (IOException e) {
+            System.out.println("Oops! Looks like we were unable to read the task info. in the text file! 😭");
+        }
+
         System.out.println("Hello, I'm FriendlyBot, your Friendly To Do List! :)\n" +
                 "Enter a To Do:\n");
 
         String line;
         Scanner in = new Scanner(System.in);
 
-        // Create array to store Tasks
-        FriendlyBotTask[] tasks = new FriendlyBotTask[100];
-        int taskCount = 0;
-
         while (in.hasNextLine()) {
+
             line = in.nextLine();
 
             // Create new array to check for 'done (no.)' input
@@ -32,10 +46,13 @@ public class FriendlyBot {
                     System.out.println("Oops! Please indicate in NUMERALS, which task you've done! 😅\n");
                 } catch (NullPointerException npe) {
                     System.out.println("Oops! It seems like the task you're trying to set as done is invalid! 🤨\n");
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Oops! It seems like the task you're trying to set as done is invalid! 🤨\n");
                 }
             } else {
                 if (line.equals("list")) {
                     System.out.println("Here are the tasks in your list:");
+
                     for (int i = 0; i < taskCount; i++) {
                         System.out.println((i + 1) + "." + tasks[i].toString());
                     }
@@ -51,13 +68,13 @@ public class FriendlyBot {
                         case "todo":
                             try {
                                 checkForTodoDescription(line);
-                                tasks[taskCount] = new FriendlyBotTodo(line);
+                                tasks[taskCount] = new FriendlyBotTodo(line, false);
                                 tasks[taskCount].description = line.substring(5);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
                             } catch (NoTodoDescriptionException ntde) {
                                 System.out.println("Oops! You can't leave the description of your Todo empty. 😞");
-                            };
+                            }
                             break;
                         case "deadline":
                             try {
@@ -65,7 +82,7 @@ public class FriendlyBot {
                                 int deadlineBy = line.indexOf("/by") + 4;
                                 String by = line.substring(deadlineBy);
                                 checkForDeadlineDescription(line, deadlineBy);
-                                tasks[taskCount] = new FriendlyBotDeadline(line, by);
+                                tasks[taskCount] = new FriendlyBotDeadline(line, by, false);
                                 tasks[taskCount].description = line.substring(9, deadlineBy - 4);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
@@ -83,7 +100,7 @@ public class FriendlyBot {
                                 int eventAt = line.indexOf("/at") + 4;
                                 String at = line.substring(eventAt);
                                 checkForEventDescription(line, eventAt);
-                                tasks[taskCount] = new FriendlyBotEvent(line, at);
+                                tasks[taskCount] = new FriendlyBotEvent(line, at, false);
                                 tasks[taskCount].description = line.substring(6, eventAt - 4);
                                 taskCount = displayNewTask(taskCount, tasks[taskCount]);
                                 break;
@@ -103,6 +120,12 @@ public class FriendlyBot {
                 }
                 System.out.println();
             }
+        }
+        // Writing updated info. into text file
+        try {
+            FriendlyTaskManager.writeToFile(f, tasks, taskCount);
+        } catch (IOException e) {
+            System.out.println("Oops! Looks like we were unable to write the new task info. to the text file! 😭");
         }
     }
 
@@ -135,7 +158,7 @@ public class FriendlyBot {
 
     private static void checkForDeadlineDescription(String line, int deadlineBy) throws NoDeadlineDescriptionException {
 
-        boolean containsLetter = line.substring(8, deadlineBy-4).matches(".*[a-zA-Z]+.*");
+        boolean containsLetter = line.substring(8, deadlineBy - 4).matches(".*[a-zA-Z]+.*");
 
         if (!containsLetter) {
             throw new NoDeadlineDescriptionException();
@@ -144,7 +167,7 @@ public class FriendlyBot {
 
     private static void checkForEventDescription(String line, int eventAt) throws NoEventDescriptionException {
 
-        boolean containsLetter = line.substring(5, eventAt-4).matches(".*[a-zA-Z]+.*");
+        boolean containsLetter = line.substring(5, eventAt - 4).matches(".*[a-zA-Z]+.*");
 
         if (!containsLetter) {
             throw new NoEventDescriptionException();
