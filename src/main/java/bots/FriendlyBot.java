@@ -57,13 +57,10 @@ public class FriendlyBot {
                 try {
                     Integer.parseInt(checkDone[1]);
                     int d = Integer.parseInt(checkDone[1]);
-//                    System.out.println("test 1");
-                    taskCount--;
-//                    System.out.println("test 2");
                     System.out.println("Alrighttt, I've successfully removed this task:\n\t" +
-                            tasks.get(d-1).toString() + "\n" + "Now you have a grand total of... " + taskCount +
+                            tasks.get(d-1).toString() + "\n" + "Now you have a grand total of... " + (taskCount-1) +
                             " task(s) in your list! 👍🏼\n");
-//                    System.out.println("test 3");
+                    taskCount--;
                     tasks.remove(d-1);
                 } catch (NumberFormatException nfe) {
                     System.out.println("Oops! Please indicate in NUMERALS, which task you want to delete! 😅\n");

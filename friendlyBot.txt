@@ -1,3 +1,0 @@
-[T]|true|read book
-[E]|true|project |someone's house
-[T]|false|jog
