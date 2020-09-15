@@ -14,6 +14,7 @@ public class FriendlyBot {
     private static int taskCount = 0;
 
     public static void main(String[] args) throws IOException {
+        f.createNewFile();
         ArrayList<FriendlyBotTask> tasks = new ArrayList<>();
 
         // Scanning/Reading info. into text file
