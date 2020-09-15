@@ -1,13 +1,20 @@
 package bots;
 
 public class FriendlyBotTodo extends FriendlyBotTask {
-    public FriendlyBotTodo(String description) {
+
+    public FriendlyBotTodo(String description){
         super(description);
-        this.description = description;
     }
+
+    public FriendlyBotTodo(String description, boolean isDone) {
+        super(description);
+        this.isDone = isDone;
+    }
+
+    String taskType = "[T]";
 
     @Override
     public String toString() {
-        return "[T]" + super.toString();
+        return taskType + super.toString();
     }
 }

@@ -1,0 +1,4 @@
+[T]|false|read book
+[D]|true|return book |sunday
+[E]|false|meeting |school
+[E]|true|project |someone's house
