@@ -1,4 +1,3 @@
-[T]|false|read book
-[D]|true|return book |sunday
-[E]|false|meeting |school
+[T]|true|read book
 [E]|true|project |someone's house
+[T]|false|jog

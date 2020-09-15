@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FriendlyTaskManager extends FriendlyBot {
 
-    public static int readFile(FriendlyBotTask[] tasks, int taskCount, File f) throws FileNotFoundException {
+    public static int readFile(ArrayList<FriendlyBotTask> tasks, int taskCount, File f) throws FileNotFoundException {
         try {
             // Using scanner object that uses text file object as source of data to READ (SCAN) from the text file
             Scanner s = new Scanner(f);
@@ -23,7 +24,7 @@ public class FriendlyTaskManager extends FriendlyBot {
                     case "[T]":
                         isDone = Boolean.parseBoolean(taskListData[1]);
                         taskDescription = taskListData[2];
-                        tasks[taskCount] = new FriendlyBotTodo(taskDescription, isDone);
+                        tasks.add(new FriendlyBotTodo(taskDescription, isDone));
                         taskCount++;
                         break;
                     case "[D]":
@@ -31,7 +32,7 @@ public class FriendlyTaskManager extends FriendlyBot {
                         String[] deadlineInfo = taskListData[2].trim().split("\\|", 2);
                         taskDescription = deadlineInfo[0];
                         String by = deadlineInfo[1];
-                        tasks[taskCount] = new FriendlyBotDeadline(taskDescription, by, isDone);
+                        tasks.add(new FriendlyBotDeadline(taskDescription, by, isDone));
                         taskCount++;
                         break;
                     case "[E]":
@@ -39,7 +40,7 @@ public class FriendlyTaskManager extends FriendlyBot {
                         String[] eventInfo = taskListData[2].trim().split("\\|", 2);
                         taskDescription = eventInfo[0];
                         String at = eventInfo[1];
-                        tasks[taskCount] = new FriendlyBotEvent(taskDescription, at, isDone);
+                        tasks.add(new FriendlyBotEvent(taskDescription, at, isDone));
                         taskCount++;
                         break;
                 }
@@ -50,7 +51,7 @@ public class FriendlyTaskManager extends FriendlyBot {
         return taskCount;
     }
 
-    public static void writeToFile(File f, FriendlyBotTask[] tasks, int taskCount) throws IOException {
+    public static void writeToFile(File f, ArrayList<FriendlyBotTask> tasks, int taskCount) throws IOException {
 
         StringBuilder dataString = new StringBuilder();
 
