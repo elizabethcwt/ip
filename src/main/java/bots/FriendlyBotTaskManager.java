@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FriendlyTaskManager extends FriendlyBot {
+public class FriendlyBotTaskManager extends FriendlyBot {
 
     public static int readFile(ArrayList<FriendlyBotTask> tasks, int taskCount, File f) throws FileNotFoundException {
         try {
@@ -51,7 +51,7 @@ public class FriendlyTaskManager extends FriendlyBot {
         return taskCount;
     }
 
-    public static void writeToFile(File f, ArrayList<FriendlyBotTask> tasks, int taskCount) throws IOException {
+    public static void writeToFile(ArrayList<FriendlyBotTask> tasks, int taskCount, File f) throws IOException {
 
         StringBuilder dataString = new StringBuilder();
 
@@ -76,7 +76,6 @@ public class FriendlyTaskManager extends FriendlyBot {
 
         FileWriter fw = new FileWriter(f);
         fw.write(String.valueOf(dataString));
-//        fw.write(String.valueOf("test test"));
         fw.close();
     }
 }

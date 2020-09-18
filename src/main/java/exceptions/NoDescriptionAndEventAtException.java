@@ -1,4 +1,4 @@
-package bots;
+package exceptions;
 
 public class NoDescriptionAndEventAtException extends Exception {
 }
