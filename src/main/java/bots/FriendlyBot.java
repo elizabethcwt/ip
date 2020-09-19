@@ -1,5 +1,6 @@
 package bots;
 
+import org.w3c.dom.ls.LSOutput;
 import storage.Storage;
 import exceptions.*;
 
@@ -15,6 +16,7 @@ public class FriendlyBot {
     private static int taskCount = 0;
 
     public static void main(String[] args) throws IOException {
+
         f.createNewFile();
         ArrayList<FriendlyBotTask> tasks = new ArrayList<>();
 
