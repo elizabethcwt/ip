@@ -63,6 +63,18 @@ public class FriendlyBotTaskManager extends FriendlyBot {
                 dataString.append(todoString);
             } else if (task instanceof FriendlyBotDeadline) {
                 FriendlyBotDeadline deadline = (FriendlyBotDeadline) task;
+
+//                // Converts date if UI contains 'yyyy-mm-dd' format in /by
+//                // Assume UI does not contain any other '-' that does not refer to date in this format
+//                String[] deadlineDateString = deadline.by.trim().split(" ");
+//                for (String entry : deadlineDateString) {
+//                    if (entry.contains("-")) {
+//                        String[] yyyymmdd = entry.trim().split("-", 3);
+//                        int year = Integer.parseInt(yyyymmdd[0]);
+//                        int date = Integer.parseInt(yyyymmdd[2]);
+//                    }
+//                }
+
                 String deadlineString = deadline.taskType + "|" + deadline.getDone() + "|" + deadline.description
                         + "|" + deadline.by + System.lineSeparator();
                 dataString.append(deadlineString);

@@ -82,6 +82,7 @@ public class Ui extends FriendlyBot {
                                 int deadlineBy = line.indexOf("/by") + 4;
                                 String by = line.substring(deadlineBy);
                                 checkForDeadlineDescription(line, deadlineBy);
+                                by = DeadlineDate.checkForDateFormat(tasks, taskCount, by);
                                 tasks.add(new FriendlyBotDeadline(line, by));
                                 tasks.get(taskCount).description = line.substring(9, deadlineBy - 4);
                                 taskCount = displayNewTask(taskCount, tasks.get(taskCount));
