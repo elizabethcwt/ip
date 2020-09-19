@@ -49,9 +49,23 @@ public class Ui extends FriendlyBot {
                     System.out.println("Oops! It seems like the number of the task you're trying to delete is " +
                             "invalid! 🤨\n");
                 }
+            } else if (checkDone[0].equals("find")) {
+                ArrayList<FriendlyBotTask> findArray = new ArrayList<>();
+                String lookFor = line.substring(5);
+                for (FriendlyBotTask item : tasks) {
+                    if (item.description.contains(lookFor)) {
+                        findArray.add(item);
+                    }
+                }
+                System.out.println("\nHere is/are the relevant task(s) in your list:");
+                int findArrayCount = 1;
+                for (FriendlyBotTask findArrayItem : findArray) {
+                    System.out.println(findArrayCount + ". " + findArrayItem);
+                }
+                System.out.println();
             } else {
                 if (line.equals("list")) {
-                    System.out.println("Here are the tasks in your list:");
+                    System.out.println("Here is/are the task(s) in your list:");
 
                     for (int i = 0; i < taskCount; i++) {
                         System.out.println((i + 1) + "." + tasks.get(i).toString());
