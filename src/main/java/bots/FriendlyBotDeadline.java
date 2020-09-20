@@ -1,5 +1,13 @@
 package bots;
 
+import exception_initialisations.NoDeadlineDescriptionException;
+
+/**
+ * Subclass of FriendlyBot that contains deadline tasks.<br><br>
+ * Contains constructor and overridden {@code toString()} method in FriendlyBot.java.
+ *
+ * @see FriendlyBotDeadline#toString()
+ */
 public class FriendlyBotDeadline extends FriendlyBotTask {
     protected String by;
 

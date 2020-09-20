@@ -5,9 +5,26 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+/**
+ * Contains checkForDateFormat and convertDate methods.
+ *
+ * @see DeadlineDate#checkForDateFormat
+ * @see DeadlineDate#convertDate
+ */
 public class DeadlineDate {
 
-
+    /**
+     * Checks if user's deadline date input contains date in the form: 'yyyy-mm-dd'. If present, calls the convertDate
+     * method.
+     *
+     * @param tasks arraylist containing all of the user's tasks.
+     * @param taskCount number of tasks in the updated list after the user has entered a new task.
+     * @param by string containing the deadline date details entered by user (string after '/by').
+     * @return by - be it updated into new format or kept as the same format if date in 'yyyy-mm-dd' format was not
+     * found.
+     *
+     * @see DeadlineDate#convertDate
+     */
     public static String checkForDateFormat(ArrayList<FriendlyBotTask> tasks, int taskCount, String by) {
 
         String[] checkForDate = by.split(" ");
@@ -31,6 +48,13 @@ public class DeadlineDate {
         }
     }
 
+    /**
+     * Converts deadline date in 'yyyy-mm-dd' format to '[month in letters] [date] [year]' format.
+     *
+     * @param dateString part of user's deadline date input in 'yyyy-mm-dd' format.
+     * @return newDateFormat - the new date in '[month in letters] [date] [year]' format.
+     * found.
+     */
     public static String convertDate(String dateString) {
 
         // Creates dates from strings

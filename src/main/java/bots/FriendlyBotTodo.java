@@ -1,5 +1,11 @@
 package bots;
 
+/**
+ * Subclass of FriendlyBot that contains todo tasks.<br>
+ * Contains constructor and overridden {@code toString()} method in FriendlyBot.java.
+ *
+ * @see FriendlyBotTodo#toString()
+ */
 public class FriendlyBotTodo extends FriendlyBotTask {
 
     public FriendlyBotTodo(String description){

@@ -8,7 +8,27 @@ import exception_initialisations.NoTodoDescriptionException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class that contains method to sort out different types of user inputs, and calls their corresponding methods.<br><br>
+ *
+ * @see Ui#handleUi(ArrayList, int)
+ */
 public class Ui extends FriendlyBot {
+
+    /**
+     * Method that scans user's inputs, then sorts out different types of user inputs.<br><br>
+     * It then calls their corresponding methods.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     *
+     * @return taskCount - to be used in other methods so the full task list can be accessed.
+     *
+     * @see Ui#uiHandleDone(ArrayList, String) (ArrayList, int, String)
+     * @see Ui#uiHandleFind(ArrayList, String) (ArrayList, int, String)
+     * @see Ui#uiHandleList(ArrayList, int) (ArrayList, int, String)
+     * @see Ui#uiHandleTask(ArrayList, int, String)
+     */
     public static int handleUi(ArrayList<FriendlyBotTask> tasks, int taskCount) {
         String line;
         Scanner in = new Scanner(System.in);
@@ -30,6 +50,7 @@ public class Ui extends FriendlyBot {
                 } else if (line.equals("bye")) {
                     System.out.println("\nHope you found this app useful! \n" +
                             "See you again! :)\n");
+                    break;
                 } else {
                     taskCount = uiHandleTask(tasks, taskCount, line);
                 }
@@ -39,6 +60,20 @@ public class Ui extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Method that handle's user's tasks by sorting them into todos, deadline and events.<br><br>
+     * It then calls the corresponding methods.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     * @param line to check the first word of the user's input to determine task type.
+     *
+     * @return taskCount - to be used in other methods so the full task list can be accessed.
+     *
+     * @see Ui#uiHandleTodo(ArrayList, int, String) (ArrayList, String) (ArrayList, int, String)
+     * @see Ui#uiHandleDeadline(ArrayList, int, String) (ArrayList, String) (ArrayList, int, String)
+     * @see Ui#uiHandleEvent(ArrayList, int, String) (ArrayList, int) (ArrayList, int, String)
+     */
     public static int uiHandleTask(ArrayList<FriendlyBotTask> tasks, int taskCount, String line) {
         String lineWords[] = line.split(" ");
         switch (lineWords[0]) {
@@ -58,6 +93,13 @@ public class Ui extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Method that marks user's task as done.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param s task information (as a string) to be marked as done.
+     *
+     */
     public static void uiHandleDone(ArrayList<FriendlyBotTask> tasks, String s) {
         try {
             Integer.parseInt(s);
@@ -75,6 +117,16 @@ public class Ui extends FriendlyBot {
         }
     }
 
+    /**
+     * Method that removes user's task from the user's task list.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to update the new task list by decrementing the task count.
+     * @param s task information (as a string) to be marked as deleted.
+     *
+     * @return taskCount - to be used in other methods so the full task list can be accessed.
+     *
+     */
     public static int uiHandleDelete(ArrayList<FriendlyBotTask> tasks, int taskCount, String s) {
         try {
             Integer.parseInt(s);
@@ -93,6 +145,14 @@ public class Ui extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Method that looks for, and displays, user's relevant task(s) in user's task list, based on user's input
+     * (keywords).
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param line keyword user wants to look for in tasks.
+     *
+     */
     public static void uiHandleFind(ArrayList<FriendlyBotTask> tasks, String line) {
         ArrayList<FriendlyBotTask> findArray = new ArrayList<>();
         String lookFor = line.substring(5);
@@ -109,6 +169,13 @@ public class Ui extends FriendlyBot {
         System.out.println();
     }
 
+    /**
+     * Method that displays all the tasks in the user's task list.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     *
+     */
     public static void uiHandleList(ArrayList<FriendlyBotTask> tasks, int taskCount) {
         System.out.println("Here is/are the task(s) in your list:");
 
@@ -118,6 +185,22 @@ public class Ui extends FriendlyBot {
         System.out.println();
     }
 
+    /**
+     * Method that handles user's event tasks by checking if user's event input is valid.<br><br>
+     * If it is, then method adds new event to the user's task list, along with the event description and location.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     * @param line to determine event details (description, location).
+     *
+     * @return taskCount - to update the user's task count.
+     *
+     * @see ExceptionAndCheckForMethods#checkForDescriptionAndEventAt(String) (String) (ArrayList, int, String)
+     * (ArrayList, String) (ArrayList, int, String)
+     * @see ExceptionAndCheckForMethods#checkForEventDescription(String, int) (String) (String) (ArrayList, int, String)
+     *      * (ArrayList, String) (ArrayList, int, String)
+     * @see FriendlyBot#displayNewTask(int, FriendlyBotTask)
+     */
     public static int uiHandleEvent(ArrayList<FriendlyBotTask> tasks, int taskCount, String line) {
         try {
             ExceptionAndCheckForMethods.checkForDescriptionAndEventAt(line);
@@ -138,6 +221,26 @@ public class Ui extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Method that handles user's deadline tasks by checking if user's deadline input is valid.<br><br>
+     * If it is, then method adds new deadline to the user's task list, along with the event description and deadline
+     * date.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     * @param line to determine deadline details (description, deadline date).
+     *
+     * @return taskCount - to update the user's task count.
+     *
+     * @see ExceptionAndCheckForMethods#checkForDescriptionAndDeadline(String) (String) (String) (ArrayList, int,
+     * String)
+     * (ArrayList, String) (ArrayList, int, String)
+     * @see ExceptionAndCheckForMethods#checkForDeadlineDescription(String, int) Description(String, int) (String)
+     * (String) (ArrayList, int, String)
+     *      * (ArrayList, String) (ArrayList, int, String)
+     * @see DeadlineDate#checkForDateFormat(ArrayList, int, String)
+     * @see FriendlyBot#displayNewTask(int, FriendlyBotTask)
+     */
     public static int uiHandleDeadline(ArrayList<FriendlyBotTask> tasks, int taskCount, String line) {
         try {
             ExceptionAndCheckForMethods.checkForDescriptionAndDeadline(line);
@@ -158,6 +261,20 @@ public class Ui extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Method that handles user's todo tasks by checking if user's todo input is valid.<br><br>
+     * If it is, then method adds new todo to the user's task list, along with the todo description.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to track how many tasks there are in the user's task list thus far.
+     * @param line to determine todo details (description).
+     *
+     * @return taskCount - to update the user's task count.
+     *
+     * @see ExceptionAndCheckForMethods#checkForTodoDescription(String) (String) (String) (ArrayList, int, String)
+     * (ArrayList, String) (ArrayList, int, String)
+     * @see FriendlyBot#displayNewTask(int, FriendlyBotTask)
+     */
     public static int uiHandleTodo(ArrayList<FriendlyBotTask> tasks, int taskCount, String line) {
         try {
             ExceptionAndCheckForMethods.checkForTodoDescription(line);

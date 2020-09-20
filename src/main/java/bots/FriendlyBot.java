@@ -28,10 +28,9 @@ public class FriendlyBot {
     private static int taskCount = 0;
 
     /**
-     * Creates a new text file to store users' tasks.<br>
+     * Creates a new text file to store users' tasks.<br><br>
      * Calls the the methods to read and write to the text file, and handles the UI.
      *
-     * @param args
      * @throws IOException happens when there is a failure during reading, writing and searching file or directory
      * operations.
      * @see Storage
@@ -66,7 +65,7 @@ public class FriendlyBot {
      *
      * @param taskCount number of tasks in the updated list after the user has entered a new task.
      * @param task the arraylist containing all the user's tasks thus far.
-     * @return taskCount, after incrementing it by 1, from adding a new todo to the arraylist.
+     * @return taskCount - after incrementing it by 1, from adding a new todo to the arraylist.
      */
     public static int displayNewTask(int taskCount, FriendlyBotTask task) {
         System.out.println("Great! I've added this task:\n\t" + task.toString() +

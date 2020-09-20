@@ -7,8 +7,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Subclass of FriendlyBot.<br><br>
+ * Contains {@code readFile()} and {@code writeToFile()} methods, as well as other sub-methods.
+ *
+ * @see FriendlyBotTaskManager#readFile(ArrayList, int, File)
+ * @see FriendlyBotTaskManager#writeToFile(ArrayList, int, File)
+ */
 public class FriendlyBotTaskManager extends FriendlyBot {
 
+    /**
+     * Scans data in text file, and adds new tasks to corresponding task list.<br><br>
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to update user's new task list when they first run/re-run the program.
+     * @param f user's text file to scan/read off of.
+     *
+     * @return taskCount
+     *
+     * @throws FileNotFoundException if no file is found/created.
+     * @see FriendlyBotTaskManager#readFileTodo(ArrayList, int, String[])
+     * @see FriendlyBotTaskManager#readFileDeadline(ArrayList, int, String[])
+     * @see FriendlyBotTaskManager#readFileEvent(ArrayList, int, String[])
+     */
     public static int readFile(ArrayList<FriendlyBotTask> tasks, int taskCount, File f) throws FileNotFoundException {
         try {
             // Using scanner object that uses text file object as source of data to READ (SCAN) from the text file
@@ -38,6 +59,21 @@ public class FriendlyBotTaskManager extends FriendlyBot {
         return taskCount;
     }
 
+    /**
+     * Writes new data into text file for storage.
+     *
+     * @param tasks array list containing all tasks thus far.
+     * @param taskCount to update user's new task list in the text file once they've edited it.
+     * @param f user's text file to write to.
+     *
+     * @throws IOException Signals that an I/O exception of some sort has occurred. This class is the general class of
+     * exceptions produced by failed or interrupted I/O operations.
+     *
+     * @see FriendlyBotTaskManager#writeToFileTodo(StringBuilder, FriendlyBotTodo)
+     * @see FriendlyBotTaskManager#writeToFileDeadline(StringBuilder, FriendlyBotDeadline) FileDeadline(ArrayList, int,
+     * String[])
+     * @see FriendlyBotTaskManager#writeToFileEvent(StringBuilder, FriendlyBotEvent) FileEvent(ArrayList, int, String[])
+     */
     public static void writeToFile(ArrayList<FriendlyBotTask> tasks, int taskCount, File f) throws IOException {
 
         StringBuilder dataString = new StringBuilder();

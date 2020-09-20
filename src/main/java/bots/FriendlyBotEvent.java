@@ -1,5 +1,11 @@
 package bots;
 
+/**
+ * Subclass of FriendlyBot that contains event tasks.<br><br>
+ * Contains constructor and overridden {@code toString()} method in FriendlyBot.java.
+ *
+ * @see FriendlyBotEvent#toString()
+ */
 public class FriendlyBotEvent extends FriendlyBotTask {
     protected String at;
 
