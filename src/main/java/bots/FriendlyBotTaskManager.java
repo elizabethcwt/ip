@@ -22,26 +22,13 @@ public class FriendlyBotTaskManager extends FriendlyBot {
 
                 switch (taskListData[0]) {
                     case "[T]":
-                        isDone = Boolean.parseBoolean(taskListData[1]);
-                        taskDescription = taskListData[2];
-                        tasks.add(new FriendlyBotTodo(taskDescription, isDone));
-                        taskCount++;
+                        taskCount = readFileTodo(tasks, taskCount, taskListData);
                         break;
                     case "[D]":
-                        isDone = Boolean.parseBoolean(taskListData[1]);
-                        String[] deadlineInfo = taskListData[2].trim().split("\\|", 2);
-                        taskDescription = deadlineInfo[0];
-                        String by = deadlineInfo[1];
-                        tasks.add(new FriendlyBotDeadline(taskDescription, by, isDone));
-                        taskCount++;
+                        taskCount = readFileDeadline(tasks, taskCount, taskListData);
                         break;
                     case "[E]":
-                        isDone = Boolean.parseBoolean(taskListData[1]);
-                        String[] eventInfo = taskListData[2].trim().split("\\|", 2);
-                        taskDescription = eventInfo[0];
-                        String at = eventInfo[1];
-                        tasks.add(new FriendlyBotEvent(taskDescription, at, isDone));
-                        taskCount++;
+                        taskCount = readFileEvent(tasks, taskCount, taskListData);
                         break;
                 }
             }
@@ -57,38 +44,72 @@ public class FriendlyBotTaskManager extends FriendlyBot {
 
         for (FriendlyBotTask task : tasks) {
             if (task instanceof FriendlyBotTodo) {
-                FriendlyBotTodo todo = (FriendlyBotTodo) task;
-                String todoString = todo.taskType + "|" + todo.getDone() + "|" + todo.description +
-                        System.lineSeparator();
-                dataString.append(todoString);
+                writeToFileTodo(dataString, (FriendlyBotTodo) task);
             } else if (task instanceof FriendlyBotDeadline) {
-                FriendlyBotDeadline deadline = (FriendlyBotDeadline) task;
-
-//                // Converts date if UI contains 'yyyy-mm-dd' format in /by
-//                // Assume UI does not contain any other '-' that does not refer to date in this format
-//                String[] deadlineDateString = deadline.by.trim().split(" ");
-//                for (String entry : deadlineDateString) {
-//                    if (entry.contains("-")) {
-//                        String[] yyyymmdd = entry.trim().split("-", 3);
-//                        int year = Integer.parseInt(yyyymmdd[0]);
-//                        int date = Integer.parseInt(yyyymmdd[2]);
-//                    }
-//                }
-
-                String deadlineString = deadline.taskType + "|" + deadline.getDone() + "|" + deadline.description
-                        + "|" + deadline.by + System.lineSeparator();
-                dataString.append(deadlineString);
+                writeToFileDeadline(dataString, (FriendlyBotDeadline) task);
             } else if (task instanceof FriendlyBotEvent) {
-                FriendlyBotEvent event = (FriendlyBotEvent) task;
-                String eventString = event.taskType + "|" + event.getDone() + "|" + event.description + "|" +
-                        event.at + System.lineSeparator();
-                dataString.append(eventString);
+                writeToFileEvent(dataString, (FriendlyBotEvent) task);
             }
         }
 
         FileWriter fw = new FileWriter(f);
         fw.write(String.valueOf(dataString));
         fw.close();
+    }
+
+    public static int readFileEvent(ArrayList<FriendlyBotTask> tasks, int taskCount, String[] taskListData) {
+        boolean isDone;
+        String taskDescription;
+        isDone = Boolean.parseBoolean(taskListData[1]);
+        String[] eventInfo = taskListData[2].trim().split("\\|", 2);
+        taskDescription = eventInfo[0];
+        String at = eventInfo[1];
+        tasks.add(new FriendlyBotEvent(taskDescription, at, isDone));
+        taskCount++;
+        return taskCount;
+    }
+
+    public static int readFileDeadline(ArrayList<FriendlyBotTask> tasks, int taskCount, String[] taskListData) {
+        boolean isDone;
+        String taskDescription;
+        isDone = Boolean.parseBoolean(taskListData[1]);
+        String[] deadlineInfo = taskListData[2].trim().split("\\|", 2);
+        taskDescription = deadlineInfo[0];
+        String by = deadlineInfo[1];
+        tasks.add(new FriendlyBotDeadline(taskDescription, by, isDone));
+        taskCount++;
+        return taskCount;
+    }
+
+    public static int readFileTodo(ArrayList<FriendlyBotTask> tasks, int taskCount, String[] taskListData) {
+        boolean isDone;
+        String taskDescription;
+        isDone = Boolean.parseBoolean(taskListData[1]);
+        taskDescription = taskListData[2];
+        tasks.add(new FriendlyBotTodo(taskDescription, isDone));
+        taskCount++;
+        return taskCount;
+    }
+
+    public static void writeToFileEvent(StringBuilder dataString, FriendlyBotEvent task) {
+        FriendlyBotEvent event = task;
+        String eventString = event.taskType + "|" + event.getDone() + "|" + event.description + "|" +
+                event.at + System.lineSeparator();
+        dataString.append(eventString);
+    }
+
+    public static void writeToFileDeadline(StringBuilder dataString, FriendlyBotDeadline task) {
+        FriendlyBotDeadline deadline = task;
+        String deadlineString = deadline.taskType + "|" + deadline.getDone() + "|" + deadline.description
+                + "|" + deadline.by + System.lineSeparator();
+        dataString.append(deadlineString);
+    }
+
+    public static void writeToFileTodo(StringBuilder dataString, FriendlyBotTodo task) {
+        FriendlyBotTodo todo = task;
+        String todoString = todo.taskType + "|" + todo.getDone() + "|" + todo.description +
+                System.lineSeparator();
+        dataString.append(todoString);
     }
 }
 

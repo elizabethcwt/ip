@@ -1,0 +1,3 @@
+[T]|true|read book
+[D]|false|return book |2pm, Sep 25 2020
+[E]|false|project |school library

@@ -1,4 +1,4 @@
-package exceptions;
+package exception_initialisations;
 
 public class NoDescriptionAndEventAtException extends Exception {
 }

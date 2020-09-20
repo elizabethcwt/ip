@@ -1,12 +1,6 @@
 package bots;
 
-import exceptions.NoDeadlineDescriptionException;
-import exceptions.NoDescriptionAndDeadlineException;
-import exceptions.NoDescriptionAndEventAtException;
-import exceptions.NoEventDescriptionException;
-import exceptions.NoTodoDescriptionException;
 import storage.Storage;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +30,7 @@ public class FriendlyBot {
     /**
      * Creates a new text file to store users' tasks.<br>
      * Calls the the methods to read and write to the text file, and handles the UI.
+     *
      * @param args
      * @throws IOException happens when there is a failure during reading, writing and searching file or directory
      * operations.
@@ -62,57 +57,17 @@ public class FriendlyBot {
                 "Enter a To Do:\n");
     }
 
-    public static void checkForDescriptionAndEventAt(String line) throws NoDescriptionAndEventAtException {
-
-        String lineWithoutSpaces = line.replaceAll("\\s", "");
-
-        if (lineWithoutSpaces.length() == 5) {
-            throw new NoDescriptionAndEventAtException();
-        }
-    }
-
-    public static void checkForDescriptionAndDeadline(String line) throws NoDescriptionAndDeadlineException {
-
-        String lineWithoutSpaces = line.replaceAll("\\s", "");
-
-        if (lineWithoutSpaces.length() == 8) {
-            throw new NoDescriptionAndDeadlineException();
-        }
-    }
-
-    public static void checkForTodoDescription(String line) throws NoTodoDescriptionException {
-
-        String lineWithoutSpaces = line.replaceAll("\\s", "");
-
-        if (lineWithoutSpaces.length() == 4) {
-            throw new NoTodoDescriptionException();
-        }
-    }
-
-    public static void checkForDeadlineDescription(String line, int deadlineBy) throws NoDeadlineDescriptionException {
-
-        boolean containsLetter = line.substring(8, deadlineBy - 4).matches(".*[a-zA-Z]+.*");
-
-        if (!containsLetter) {
-            throw new NoDeadlineDescriptionException();
-        }
-    }
-
-    public static void checkForEventDescription(String line, int eventAt) throws NoEventDescriptionException {
-
-        boolean containsLetter = line.substring(5, eventAt - 4).matches(".*[a-zA-Z]+.*");
-
-        if (!containsLetter) {
-            throw new NoEventDescriptionException();
-        }
-    }
-
-    // Refactored from main
     public static void invalidCommand() {
         System.out.println("Oops! I don't think I know what you mean. ☹");
     }
 
-    // Refactored from main
+    /**
+     * Displays the user's new task.
+     *
+     * @param taskCount number of tasks in the updated list after the user has entered a new task.
+     * @param task the arraylist containing all the user's tasks thus far.
+     * @return taskCount, after incrementing it by 1, from adding a new todo to the arraylist.
+     */
     public static int displayNewTask(int taskCount, FriendlyBotTask task) {
         System.out.println("Great! I've added this task:\n\t" + task.toString() +
                 "\nNow you have " + (taskCount + 1) + " task(s) in your list.");
