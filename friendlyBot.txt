@@ -1,3 +1,0 @@
-[T]|true|read book
-[E]|false|project |school
-[D]|false|return book |sunday

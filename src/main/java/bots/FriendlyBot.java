@@ -1,13 +1,31 @@
 package bots;
 
-import org.w3c.dom.ls.LSOutput;
+import exceptions.NoDeadlineDescriptionException;
+import exceptions.NoDescriptionAndDeadlineException;
+import exceptions.NoDescriptionAndEventAtException;
+import exceptions.NoEventDescriptionException;
+import exceptions.NoTodoDescriptionException;
 import storage.Storage;
-import exceptions.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * <h1>Welcome to FriendlyBot!</h1>
+ * <h2>FriendlyBot is a program that helps manage users' task lists.</h2>
+ * <h3>Here are FriendlyBot's Features:</h3>
+ *
+ * <ul>
+ *     <li>Stores todos</li>
+ *     <li>Stores deadlines with deadline date (Can read yyyy-mm-dd format)</li>
+ *     <li>Stores events with event location</li>
+ * </ul>
+ *
+ * @author ElizabethChan
+ * @version 1.0
+ * @since 2020-08-24
+ */
 public class FriendlyBot {
 
     // Creating a new text file to store task list
@@ -15,6 +33,15 @@ public class FriendlyBot {
     static File f = new File(PATH + "/friendlyBot.txt");
     private static int taskCount = 0;
 
+    /**
+     * Creates a new text file to store users' tasks.<br>
+     * Calls the the methods to read and write to the text file, and handles the UI.
+     * @param args
+     * @throws IOException happens when there is a failure during reading, writing and searching file or directory
+     * operations.
+     * @see Storage
+     * @see Ui
+     */
     public static void main(String[] args) throws IOException {
 
         f.createNewFile();
