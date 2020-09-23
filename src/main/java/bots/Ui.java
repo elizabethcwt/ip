@@ -5,6 +5,7 @@ import exception_initialisations.NoDescriptionAndDeadlineException;
 import exception_initialisations.NoDescriptionAndEventAtException;
 import exception_initialisations.NoEventDescriptionException;
 import exception_initialisations.NoTodoDescriptionException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class Ui extends FriendlyBot {
      *
      * @return taskCount - to be used in other methods so the full task list can be accessed.
      *
-     * @see Ui#uiHandleDone(ArrayList, String) (ArrayList, int, String)
+     * @see Ui#uiHandleDone(ArrayList, String) (ArrayList, String, String) (ArrayList, String) (ArrayList, int, String)
      * @see Ui#uiHandleFind(ArrayList, String) (ArrayList, int, String)
      * @see Ui#uiHandleList(ArrayList, int) (ArrayList, int, String)
      * @see Ui#uiHandleTask(ArrayList, int, String)
@@ -39,11 +40,25 @@ public class Ui extends FriendlyBot {
             String[] checkDone = line.split(" ", 2);
 
             if (checkDone[0].equals("done")) {
-                uiHandleDone(tasks, checkDone[1]);
+                try {
+                    uiHandleDone(tasks, checkDone[1]);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Oops! Please indicate which task, in your task list, you'd like to mark as" +
+                            " done! 😊\n");
+                }
             } else if (checkDone[0].equals("delete")) {
-                taskCount = uiHandleDelete(tasks, taskCount, checkDone[1]);
+                try {
+                    taskCount = uiHandleDelete(tasks, taskCount, checkDone[1]);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Oops! Please indicate which task, in your task list, you'd like to delete! 😊\n");
+                }
             } else if (checkDone[0].equals("find")) {
-                uiHandleFind(tasks, line);
+                try {
+                    uiHandleFind(tasks, line);
+                } catch (StringIndexOutOfBoundsException e) {
+                    System.out.println("Oops! Please include some keyword(s) you're trying to find in your task list!" +
+                            " 😊\n");
+                }
             } else {
                 if (line.equals("list")) {
                     uiHandleList(tasks, taskCount);
@@ -107,10 +122,8 @@ public class Ui extends FriendlyBot {
             tasks.get(d - 1).markAsDone();
             System.out.println("Good job! :) I've marked this task as complete:\n\n\t" +
                     tasks.get(d - 1).toString() + "\n");
-        } catch (NumberFormatException nfe) {
+        } catch (NumberFormatException e) {
             System.out.println("Oops! Please indicate in NUMERALS, which task you've done! 😅\n");
-        } catch (NullPointerException | ArrayIndexOutOfBoundsException npe) {
-            System.out.println("Oops! It seems like the task you're trying to set as done is invalid! 🤨\n");
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Oops! It seems like the number of the task you're trying to set as done is " +
                     "invalid! 🤨\n");
@@ -136,9 +149,9 @@ public class Ui extends FriendlyBot {
                     " task(s) in your list! 👍🏼\n");
             taskCount--;
             tasks.remove(d - 1);
-        } catch (NumberFormatException nfe) {
+        } catch (NumberFormatException e) {
             System.out.println("Oops! Please indicate in NUMERALS, which task you want to delete! 😅\n");
-        } catch (IndexOutOfBoundsException iofbe) {
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Oops! It seems like the number of the task you're trying to delete is " +
                     "invalid! 🤨\n");
         }
@@ -177,10 +190,14 @@ public class Ui extends FriendlyBot {
      *
      */
     public static void uiHandleList(ArrayList<FriendlyBotTask> tasks, int taskCount) {
-        System.out.println("Here is/are the task(s) in your list:");
-
-        for (int i = 0; i < taskCount; i++) {
-            System.out.println((i + 1) + "." + tasks.get(i).toString());
+        if(taskCount == 0) {
+            System.out.println("Hmm, looks like your task list is currently still empty 😮. Try adding a todo, deadline " +
+                    "or event!");
+        } else {
+            System.out.println("Here is/are the task(s) in your list:");
+            for (int i = 0; i < taskCount; i++) {
+                System.out.println((i + 1) + "." + tasks.get(i).toString());
+            }
         }
         System.out.println();
     }
@@ -251,11 +268,11 @@ public class Ui extends FriendlyBot {
             tasks.add(new FriendlyBotDeadline(line, by));
             tasks.get(taskCount).description = line.substring(9, deadlineBy - 4);
             taskCount = displayNewTask(taskCount, tasks.get(taskCount));
-        } catch (NoDescriptionAndDeadlineException ndde) {
+        } catch (NoDescriptionAndDeadlineException e) {
             System.out.println("Oops! Are you missing a description AND a deadline?? 😱");
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println("Oops! Are you missing a deadline? 🧐 (use '/by'!)");
-        } catch (NoDeadlineDescriptionException nde) {
+        } catch (NoDeadlineDescriptionException e) {
             System.out.println("Oops! Are you missing a description for your deadline? 🧐");
         }
         return taskCount;
@@ -281,7 +298,7 @@ public class Ui extends FriendlyBot {
             tasks.add(new FriendlyBotTodo(line));
             tasks.get(taskCount).description = line.substring(5);
             taskCount = displayNewTask(taskCount, tasks.get(taskCount));
-        } catch (NoTodoDescriptionException ntde) {
+        } catch (NoTodoDescriptionException e) {
             System.out.println("Oops! You can't leave the description of your Todo empty. 😞");
         }
         return taskCount;
