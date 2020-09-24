@@ -27,9 +27,10 @@ These commands are shown more clearly in the flowchart below.
     <br>`Great! I've added this task:`
     <br>`[T][✘] read book`
     <br>`Now you have 2 task(s) in your list.`
-<br>Note:
-* `[T]` - Task is of TODO type.
-* `[✘]` - Task is NOT DONE.
+
+	Note:
+	* `[T]` - Task is of TODO type.
+	* `[✘]` - Task is NOT DONE.
    
 2. Adding a deadline task: `deadline`
 <br>Adds a deadline task in your task list.
