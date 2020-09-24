@@ -30,8 +30,8 @@ Input: `todo read book`
 <br>`Now you have 2 task(s) in your list.`
 
 Note:
-* `[T]` - Task is of TODO type.
-* `[✘]` - Task is NOT DONE.
+* `[T]` - Task is of **todo** type.
+* `[✘]` - Task is **not done**.
    
 #### Adding a deadline task: `deadline`
 Adds a deadline task in your task list.
@@ -52,8 +52,8 @@ Input: `deadline return book /by 2pm, 2020-09-25`
 <br>`Now you have 2 task(s) in your list.`
   
 Note:
-* `[D]` - Task is of DEADLINE type.
-* `[✘]` - Task is NOT DONE.
+* `[D]` - Task is of **deadline** type.
+* `[✘]` - Task is **not done**.
 
 #### Adding an event task: `event`
 Adds an event task in your task list.
@@ -67,8 +67,8 @@ Input: `event project meeting /at school`
 <br>`Now you have 1 task(s) in your list.`
 
 Note:
-* `[E]` - Task is of EVENT type.
-* `[✘]` - Task is NOT DONE.
+* `[E]` - Task is of **event** type.
+* `[✘]` - Task is **not done**.
    
 ### Check/Update an existing task
 #### Listing all tasks: `list`
@@ -94,7 +94,7 @@ Input: `done 3`
 <br>`[E][✓] project meeting  (at: school)`
 
 Note:
-* `[✓]` - Task is DONE.
+* `[✓]` - Task is **done**.
 
 #### Deleting a task: `delete`
 Deletes a specific task in your current task list.
@@ -129,6 +129,7 @@ Input: `bye`
 
 ## Command Summary
 |Action|Format|
+|--------------|----------------|
 |Add todo|`todo [todo task description]`|
 |Add deadline|`deadline [deadline task description] /by [deadline date]`|
 |Add event|`deadline [event task description] /at [event location]`|
