@@ -31,7 +31,7 @@ These commands are shown more clearly in the flowchart below.
 * `[T]` - Task is of TODO type.
 * `[✘]` - Task is NOT DONE.
    
-1. Adding a deadline task: `deadline`
+2. Adding a deadline task: `deadline`
 <br>Adds a deadline task in your task list.
 <br>Format: `deadline [deadline task description] /by [deadline date]`
 <br>Entering a date in `YYYY-MM-DD` format converts the date to `MONTH DD YEAR` format.
@@ -52,7 +52,7 @@ These commands are shown more clearly in the flowchart below.
 * `[D]` - Task is of DEADLINE type.
 * `[✘]` - Task is NOT DONE.
 
-1. Adding an event task: `event`
+3. Adding an event task: `event`
 <br>Adds an event task in your task list.
 <br>Format: `event [event task description] /at [event location]`
 <br>Examples: <br>
@@ -77,8 +77,8 @@ These commands are shown more clearly in the flowchart below.
 	<br>`2.[D][✘] return book  (by: 2pm, Sep 25 2020)`
 	<br>`3.[E][✘] project meeting  (at: school)`
 
-1. Marking tasks as done: `done`
-<br>Marks targetted task in your task list as done.
+2. Marking tasks as done: `done`
+<br>Marks specific task in your task list as done.
 <br>Format: `done [task number in task list]`
 <br>Examples: <br>
 	1. `done 3`
@@ -88,6 +88,25 @@ These commands are shown more clearly in the flowchart below.
 	
 <br>Note:
 * `[✓]` - Task is DONE.
+
+3. Deleting a task: `delete`
+<br>Deletes a specific task in your current task list.
+<br>Format: `done [task number in task list]`
+<br>Examples: <br>
+	1. `delete 2`
+	<br>Expected output:
+    <br>`Alrighttt, I've successfully removed this task:`
+    <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
+    <br>`Now you have a grand total of... 2 task(s) in your list! 👍🏼`
+    
+4. Finding a task: `find`
+<br>Finds relevant tasks in your current task list based on keywords you provide.
+<br>Format: `find [keyword]`
+<br>Examples: <br>
+    1. `find book`
+    <br>Expected output:
+    <br>`Here is/are the relevant task(s) in your list:`
+    <br>`1. [D][✘] return book  (by: Sunday, 2pm)`
 
 ### Feature 1 
 Description of feature.
