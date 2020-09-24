@@ -18,101 +18,113 @@ These commands are shown more clearly in the flowchart below.
 
 ## Features
 ### Adding a new task
-1. Adding a todo task: `todo`
+#### Adding a todo task: `todo`
 <br>Adds a todo task in your task list.
 <br>Format: `todo [todo task description]`
-<br>Examples: <br>
-    1. `todo read book`
-    <br>Expected output:
-    <br>`Great! I've added this task:`
-    <br>`[T][✘] read book`
-    <br>`Now you have 2 task(s) in your list.`
+<br>Examples:
+<br>
+Input: `todo read book`
+<br>Expected output:
+<br>`Great! I've added this task:`
+<br>`[T][✘] read book`
+<br>`Now you have 2 task(s) in your list.`
 
-	Note:
-	* `[T]` - Task is of TODO type.
-	* `[✘]` - Task is NOT DONE.
+Note:
+* `[T]` - Task is of TODO type.
+* `[✘]` - Task is NOT DONE.
    
-2. Adding a deadline task: `deadline`
+#### Adding a deadline task: `deadline`
 <br>Adds a deadline task in your task list.
 <br>Format: `deadline [deadline task description] /by [deadline date]`
 <br>Entering a date in `YYYY-MM-DD` format converts the date to `MONTH DD YEAR` format.
-<br>Examples: <br>
-    1. `deadline return book /by Sunday, 2pm`
-    <br>Expected output:
-    <br>`Great! I've added this task:`
-    <br>`[D][✘] return book  (by: Sunday, 2pm)`
-    <br>`Now you have 1 task(s) in your list.`
+<br>Examples:
+<br>
+Input: `deadline return book /by Sunday, 2pm`
+<br>Expected output:
+<br>`Great! I've added this task:`
+<br>`[D][✘] return book  (by: Sunday, 2pm)`
+<br>`Now you have 1 task(s) in your list.`
     
-    1. `deadline return book /by 2pm, 2020-09-25`
-    <br>Expected output:
-    <br>`Great! I've added this task:`
-    <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
-    <br>`Now you have 2 task(s) in your list.`
+Input: `deadline return book /by 2pm, 2020-09-25`
+<br>Expected output:
+<br>`Great! I've added this task:`
+<br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
+<br>`Now you have 2 task(s) in your list.`
   
-	Note:
-	* `[D]` - Task is of DEADLINE type.
-	* `[✘]` - Task is NOT DONE.
+Note:
+* `[D]` - Task is of DEADLINE type.
+* `[✘]` - Task is NOT DONE.
 
-3. Adding an event task: `event`
+#### Adding an event task: `event`
 <br>Adds an event task in your task list.
 <br>Format: `event [event task description] /at [event location]`
-<br>Examples: <br>
-    1. `event project meeting /at school`
-    <br>Expected output:
-    <br>`Great! I've added this task:`
-    <br>`[E][✘] project meeting  (at: school)`
-    <br>`Now you have 1 task(s) in your list.`
-		
-	Note:
-	* `[E]` - Task is of EVENT type.
-	* `[✘]` - Task is NOT DONE.
+<br>Examples:
+<br>
+Input: `event project meeting /at school`
+<br>Expected output:
+<br>`Great! I've added this task:`
+<br>`[E][✘] project meeting  (at: school)`
+<br>`Now you have 1 task(s) in your list.`
+
+Note:
+* `[E]` - Task is of EVENT type.
+* `[✘]` - Task is NOT DONE.
    
 ### Check/Update an existing task
-1. Listing all tasks: `list`
+#### Listing all tasks: `list`
 <br>Lists all the tasks (todo, deadline and event) in your current task list.
-<br>Examples: <br>
-	1. `list`
-	<br>Expected output:
-	<br>`Here is/are the task(s) in your list:`
-	<br>`1.[D][✘] return book  (by: Sunday, 2pm)`
-	<br>`2.[D][✘] return book  (by: 2pm, Sep 25 2020)`
-	<br>`3.[E][✘] project meeting  (at: school)`
+<br>Examples:
+<br>
+Input: `list`
+<br>Expected output:
+<br>`Here is/are the task(s) in your list:`
+<br>`1.[D][✘] return book  (by: Sunday, 2pm)`
+<br>`2.[D][✘] return book  (by: 2pm, Sep 25 2020)`
+<br>`3.[E][✘] project meeting  (at: school)`
 
-2. Marking tasks as done: `done`
+#### Marking tasks as done: `done`
 <br>Marks specific task in your task list as done.
 <br>Format: `done [task number in task list]`
-<br>Examples: <br>
-	1. `done 3`
-	<br>Expected output:
-	<br>`Good job! :) I've marked this task as complete:`
-	<br>`[E][✓] project meeting  (at: school)`
-	
-		Note:
-		* `[✓]` - Task is DONE.
+<br>Examples:
+<br>
+Input: `done 3`
+<br>Expected output:
+<br>`Good job! :) I've marked this task as complete:`
+<br>`[E][✓] project meeting  (at: school)`
 
-3. Deleting a task: `delete`
+Note:
+* `[✓]` - Task is DONE.
+
+#### Deleting a task: `delete`
 <br>Deletes a specific task in your current task list.
 <br>Format: `done [task number in task list]`
-<br>Examples: <br>
-	1. `delete 2`
-	<br>Expected output:
-    <br>`Alrighttt, I've successfully removed this task:`
-    <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
-    <br>`Now you have a grand total of... 2 task(s) in your list! 👍🏼`
+<br>Examples:
+<br>
+Input: `delete 2`
+<br>Expected output:
+<br>`Alrighttt, I've successfully removed this task:`
+<br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
+<br>`Now you have a grand total of... 2 task(s) in your list! 👍🏼`
     
-4. Finding a task: `find`
+#### Finding a task: `find`
 <br>Finds relevant tasks in your current task list based on keywords you provide.
 <br>Format: `find [keyword]`
-<br>Examples: <br>
-    1. `find book`
-    <br>Expected output:
-    <br>`Here is/are the relevant task(s) in your list:`
-    <br>`1. [D][✘] return book  (by: Sunday, 2pm)`
+<br>Examples:
+<br>
+Input: `find book`
+<br>Expected output:
+<br>`Here is/are the relevant task(s) in your list:`
+<br>`1. [D][✘] return book  (by: Sunday, 2pm)`
 
-### Feature 1 
-Description of feature.
-Expected outcome:
-`outcome`
+###
+#### Exiting the program: `bye`
+<br>Exits FriendlyBot.
+<br>Examples:
+<br>
+Input: `bye`
+<br>Expected output:
+<br>`Hope you found this app useful! `
+<br>`See you again! :)`
 
 ### Feature 2
 Description of feature.
