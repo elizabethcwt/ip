@@ -27,6 +27,9 @@ These commands are shown more clearly in the flowchart below.
     <br>`Great! I've added this task:`
     <br>`[T][✘] read book`
     <br>`Now you have 2 task(s) in your list.`
+<br>Note:
+* `[T]` - Task is of TODO type.
+* `[✘]` - Task is NOT DONE.
    
 1. Adding a deadline task: `deadline`
 <br>Adds a deadline task in your task list.
@@ -44,6 +47,10 @@ These commands are shown more clearly in the flowchart below.
     <br>`Great! I've added this task:`
     <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
     <br>`Now you have 2 task(s) in your list.`
+		
+<br>Note:
+* `[D]` - Task is of DEADLINE type.
+* `[✘]` - Task is NOT DONE.
 
 1. Adding an event task: `event`
 <br>Adds an event task in your task list.
@@ -54,6 +61,10 @@ These commands are shown more clearly in the flowchart below.
     <br>`Great! I've added this task:`
     <br>`[E][✘] project meeting  (at: school)`
     <br>`Now you have 1 task(s) in your list.`
+		
+<br>Note:
+* `[E]` - Task is of EVENT type.
+* `[✘]` - Task is NOT DONE.
    
 ### Check/Update an existing task
 1. Listing all tasks: `list`
@@ -65,7 +76,18 @@ These commands are shown more clearly in the flowchart below.
 	<br>`1.[D][✘] return book  (by: Sunday, 2pm)`
 	<br>`2.[D][✘] return book  (by: 2pm, Sep 25 2020)`
 	<br>`3.[E][✘] project meeting  (at: school)`
-	<br>
+
+1. Marking tasks as done: `done`
+<br>Marks targetted task in your task list as done.
+<br>Format: `done [task number in task list]`
+<br>Examples: <br>
+	1. `done 3`
+	<br>Expected output:
+	<br>`Good job! :) I've marked this task as complete:`
+	<br>`[E][✓] project meeting  (at: school)`
+	
+<br>Note:
+* `[✓]` - Task is DONE.
 
 ### Feature 1 
 Description of feature.
