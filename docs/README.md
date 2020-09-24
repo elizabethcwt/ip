@@ -47,10 +47,10 @@ These commands are shown more clearly in the flowchart below.
     <br>`Great! I've added this task:`
     <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
     <br>`Now you have 2 task(s) in your list.`
-		
-<br>Note:
-* `[D]` - Task is of DEADLINE type.
-* `[✘]` - Task is NOT DONE.
+  
+	Note:
+	* `[D]` - Task is of DEADLINE type.
+	* `[✘]` - Task is NOT DONE.
 
 3. Adding an event task: `event`
 <br>Adds an event task in your task list.
@@ -62,9 +62,9 @@ These commands are shown more clearly in the flowchart below.
     <br>`[E][✘] project meeting  (at: school)`
     <br>`Now you have 1 task(s) in your list.`
 		
-<br>Note:
-* `[E]` - Task is of EVENT type.
-* `[✘]` - Task is NOT DONE.
+	Note:
+	* `[E]` - Task is of EVENT type.
+	* `[✘]` - Task is NOT DONE.
    
 ### Check/Update an existing task
 1. Listing all tasks: `list`
