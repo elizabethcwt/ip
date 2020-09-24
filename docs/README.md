@@ -87,8 +87,8 @@ These commands are shown more clearly in the flowchart below.
 	<br>`Good job! :) I've marked this task as complete:`
 	<br>`[E][✓] project meeting  (at: school)`
 	
-<br>Note:
-* `[✓]` - Task is DONE.
+		Note:
+		* `[✓]` - Task is DONE.
 
 3. Deleting a task: `delete`
 <br>Deletes a specific task in your current task list.
