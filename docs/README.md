@@ -19,7 +19,7 @@ These commands are shown more clearly in the flowchart below.
 ## Features
 ### Adding a new task
 #### Adding a todo task: `todo`
-<br>Adds a todo task in your task list.
+Adds a todo task in your task list.
 <br>Format: `todo [todo task description]`
 <br>Examples:
 <br>
@@ -34,7 +34,7 @@ Note:
 * `[✘]` - Task is NOT DONE.
    
 #### Adding a deadline task: `deadline`
-<br>Adds a deadline task in your task list.
+Adds a deadline task in your task list.
 <br>Format: `deadline [deadline task description] /by [deadline date]`
 <br>Entering a date in `YYYY-MM-DD` format converts the date to `MONTH DD YEAR` format.
 <br>Examples:
@@ -56,7 +56,7 @@ Note:
 * `[✘]` - Task is NOT DONE.
 
 #### Adding an event task: `event`
-<br>Adds an event task in your task list.
+Adds an event task in your task list.
 <br>Format: `event [event task description] /at [event location]`
 <br>Examples:
 <br>
@@ -72,7 +72,8 @@ Note:
    
 ### Check/Update an existing task
 #### Listing all tasks: `list`
-<br>Lists all the tasks (todo, deadline and event) in your current task list.
+Lists all the tasks (todo, deadline and event) in your current task list.
+<br>Format: `list`
 <br>Examples:
 <br>
 Input: `list`
@@ -83,7 +84,7 @@ Input: `list`
 <br>`3.[E][✘] project meeting  (at: school)`
 
 #### Marking tasks as done: `done`
-<br>Marks specific task in your task list as done.
+Marks specific task in your task list as done.
 <br>Format: `done [task number in task list]`
 <br>Examples:
 <br>
@@ -96,7 +97,7 @@ Note:
 * `[✓]` - Task is DONE.
 
 #### Deleting a task: `delete`
-<br>Deletes a specific task in your current task list.
+Deletes a specific task in your current task list.
 <br>Format: `done [task number in task list]`
 <br>Examples:
 <br>
@@ -107,8 +108,8 @@ Input: `delete 2`
 <br>`Now you have a grand total of... 2 task(s) in your list! 👍🏼`
     
 #### Finding a task: `find`
-<br>Finds relevant tasks in your current task list based on keywords you provide.
-<br>Format: `find [keyword]`
+Finds relevant tasks in your current task list based on keywords you provide.
+<br>Format: `find [keyword(s)]`
 <br>Examples:
 <br>
 Input: `find book`
@@ -118,7 +119,7 @@ Input: `find book`
 
 ###
 #### Exiting the program: `bye`
-<br>Exits FriendlyBot.
+Exits FriendlyBot.
 <br>Examples:
 <br>
 Input: `bye`
@@ -126,7 +127,13 @@ Input: `bye`
 <br>`Hope you found this app useful! `
 <br>`See you again! :)`
 
-### Feature 2
-Description of feature.
-
 ## Command Summary
+|Action|Format|
+|Add todo|`todo [todo task description]`|
+|Add deadline|`deadline [deadline task description] /by [deadline date]`|
+|Add event|`deadline [event task description] /at [event location]`|
+|List|`list`
+|Done|`done [task number in task list]`|
+|Delete|`delete [task number in task list]`|
+|Find|`find [keyword(s)]`|
+|Bye|`bye`|
