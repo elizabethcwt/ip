@@ -1,0 +1,2 @@
+[D]|false|return book |Sunday, 2pm
+[E]|true|project meeting |school
