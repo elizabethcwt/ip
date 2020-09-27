@@ -1,5 +1,14 @@
 # User Guide
 
+*  [Introduction and Flowchart](#introduction-and-flowchart)
+*  [Quick Start](#quick-start)
+*  [Features](#features)
+   *  [Adding a new task](#adding-a-new-task): `todo` `deadline` `event`
+   *  [Check/Update an existing task](#check/update-an-existing-task): `list` `done` `delete` `find`
+   *  [Exiting the program](#exiting-the-program): `bye`
+*  [Command Summary](#command-summary)
+
+## Introduction and Flowchart
 FriendlyBot is your friendly todo list, that helps you to **manage three types of tasks**:
 * Todos,
 * Deadlines, and
