@@ -39,9 +39,7 @@ Adds a todo task in your task list.
 <br>
 Input: `todo read book`
 <br>Expected output:
-<br>`Great! I've added this task:`
-<br>`[T][✘] read book`
-<br>`Now you have 1 task(s) in your list.`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/todo.png" width="300">
 
 Note:
 * `[T]` - Task is of **todo** type.
@@ -55,15 +53,11 @@ Adds a deadline task in your task list.
 <br>
 Input: `deadline return book /by Sunday, 2pm`
 <br>Expected output:
-<br>`Great! I've added this task:`
-<br>`[D][✘] return book  (by: Sunday, 2pm)`
-<br>`Now you have 2 task(s) in your list.`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline1.png" width="365">
     
 Input: `deadline return book /by 2pm, 2020-09-25`
 <br>Expected output:
-<br>`Great! I've added this task:`
-<br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
-<br>`Now you have 3 task(s) in your list.`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline2.png" width="385">
   
 Note:
 * `[D]` - Task is of **deadline** type.
@@ -76,9 +70,7 @@ Adds an event task in your task list.
 <br>
 Input: `event project meeting /at school`
 <br>Expected output:
-<br>`Great! I've added this task:`
-<br>`[E][✘] project meeting  (at: school)`
-<br>`Now you have 4 task(s) in your list.`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/event.png" width="350">
 
 Note:
 * `[E]` - Task is of **event** type.
@@ -93,11 +85,7 @@ Lists all the tasks (todo, deadline and event) in your current task list.
 <br>
 Input: `list`
 <br>Expected output:
-<br>`Here is/are the task(s) in your list:`
-<br>`1.[T][✘] read book`
-<br>`2.[D][✘] return book  (by: Sunday, 2pm)`
-<br>`3.[D][✘] return book  (by: 2pm, Sep 25 2020)`
-<br>`4.[E][✘] project meeting  (at: school)`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/list.png" width="350">
 
 #### Marking tasks as done: `done`
 Marks specific task in your task list as done.
@@ -106,8 +94,7 @@ Marks specific task in your task list as done.
 <br>
 Input: `done 1`
 <br>Expected output:
-<br>`Good job! :) I've marked this task as complete:`
-<br><br>`[T][✓] read book`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/done.png" width="350">
 
 Note:
 * `[✓]` - Task is **done**.
@@ -119,9 +106,7 @@ Deletes a specific task in your current task list.
 <br>
 Input: `delete 2`
 <br>Expected output:
-<br>`Alrighttt, I've successfully removed this task:`
-<br>`[D][✘] return book  (by: Sunday, 2pm)`
-<br>`Now you have a grand total of... 3 task(s) in your list! 👍🏼`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/delete2.png" width="460">
     
 #### Finding a task: `find`
 Finds relevant tasks in your current task list based on keywords you provide.
@@ -130,8 +115,7 @@ Finds relevant tasks in your current task list based on keywords you provide.
 <br>
 Input: `find book`
 <br>Expected output:
-<br>`Here is/are the relevant task(s) in your list:`
-<br>`1. [D][✘] return book  (by: Sunday, 2pm)`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/find.png" width="360">
 
 <a id="exiting-the-program"></a>
 ### Exiting the program: `bye`
@@ -140,8 +124,7 @@ Exits FriendlyBot.
 <br>
 Input: `bye`
 <br>Expected output:
-<br>`Hope you found this app useful! `
-<br>`See you again! :)`
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/bye.png" width="260">
 
 <a id="command-summary"></a>
 ## Command Summary
