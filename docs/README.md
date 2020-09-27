@@ -127,8 +127,7 @@ Input: `find book`
 <br>`Here is/are the relevant task(s) in your list:`
 <br>`1. [D][✘] return book  (by: Sunday, 2pm)`
 
-###
-#### Exiting the program: `bye`
+### Exiting the program: `bye`
 Exits FriendlyBot.
 <br>Examples:
 <br>
