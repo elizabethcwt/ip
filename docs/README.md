@@ -7,7 +7,8 @@ FriendlyBot is your friendly todo list, that helps you to **manage three types o
 
 FriendlyBot provides several user commands, for more functionality when managing your tasks.
 These commands are shown more clearly in the flowchart below.
-<br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/commit/25d3f2a5c9006f885a93c4ff70e6efeaec0be217)
+<br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/blob/master/docs/FriendlyBot%20Basic%20Flowchart.png)
+
 
 ## Quick Start
 1. Ensure you have Java `11` or above installed in your Computer.
