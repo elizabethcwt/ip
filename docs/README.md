@@ -22,7 +22,7 @@ These commands are shown more clearly in the flowchart below.
 <a id="quick-start"></a>
 ## Quick Start
 1. Ensure you have Java `11` or above installed in your Computer.
-1. Download the latest `ip.jar` from [here](https://github.com/elizabethcwt/ip/releases/tag/A-Jar). (Not updated)
+1. Download the latest `ip.jar` from [here](https://github.com/elizabethcwt/ip/releases/tag/A-Release).
 1. Copy and place the file into a folder on your computer.
 1. Open your computer's terminal, navigate to the `ip.jar` file and run the app.
 1. Refer to the features below for details of the commands available in FriendlyBot.
