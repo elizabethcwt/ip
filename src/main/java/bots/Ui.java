@@ -178,6 +178,7 @@ public class Ui extends FriendlyBot {
         int findArrayCount = 1;
         for (FriendlyBotTask findArrayItem : findArray) {
             System.out.println(findArrayCount + ". " + findArrayItem);
+            findArrayCount++;
         }
         System.out.println();
     }

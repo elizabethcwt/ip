@@ -68,7 +68,7 @@ public class FriendlyBot {
      * @return taskCount - after incrementing it by 1, from adding a new todo to the arraylist.
      */
     public static int displayNewTask(int taskCount, FriendlyBotTask task) {
-        System.out.println("Great! 😊 I've added this task:\n\t" + task.toString() +
+        System.out.println("Great! I've added this task:\n\t" + task.toString() +
                 "\nNow you have " + (taskCount + 1) + " task(s) in your list.");
         taskCount++;
         return taskCount;
