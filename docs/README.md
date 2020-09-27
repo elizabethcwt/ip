@@ -41,7 +41,7 @@ Input: `todo read book`
 <br>Expected output:
 <br>`Great! I've added this task:`
 <br>`[T][✘] read book`
-<br>`Now you have 2 task(s) in your list.`
+<br>`Now you have 1 task(s) in your list.`
 
 Note:
 * `[T]` - Task is of **todo** type.
@@ -57,13 +57,13 @@ Input: `deadline return book /by Sunday, 2pm`
 <br>Expected output:
 <br>`Great! I've added this task:`
 <br>`[D][✘] return book  (by: Sunday, 2pm)`
-<br>`Now you have 1 task(s) in your list.`
+<br>`Now you have 2 task(s) in your list.`
     
 Input: `deadline return book /by 2pm, 2020-09-25`
 <br>Expected output:
 <br>`Great! I've added this task:`
 <br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
-<br>`Now you have 2 task(s) in your list.`
+<br>`Now you have 3 task(s) in your list.`
   
 Note:
 * `[D]` - Task is of **deadline** type.
@@ -78,7 +78,7 @@ Input: `event project meeting /at school`
 <br>Expected output:
 <br>`Great! I've added this task:`
 <br>`[E][✘] project meeting  (at: school)`
-<br>`Now you have 1 task(s) in your list.`
+<br>`Now you have 4 task(s) in your list.`
 
 Note:
 * `[E]` - Task is of **event** type.
@@ -94,19 +94,20 @@ Lists all the tasks (todo, deadline and event) in your current task list.
 Input: `list`
 <br>Expected output:
 <br>`Here is/are the task(s) in your list:`
-<br>`1.[D][✘] return book  (by: Sunday, 2pm)`
-<br>`2.[D][✘] return book  (by: 2pm, Sep 25 2020)`
-<br>`3.[E][✘] project meeting  (at: school)`
+<br>`1.[T][✘] read book`
+<br>`2.[D][✘] return book  (by: Sunday, 2pm)`
+<br>`3.[D][✘] return book  (by: 2pm, Sep 25 2020)`
+<br>`4.[E][✘] project meeting  (at: school)`
 
 #### Marking tasks as done: `done`
 Marks specific task in your task list as done.
 <br>Format: `done [task number in task list]`
 <br>Examples:
 <br>
-Input: `done 3`
+Input: `done 1`
 <br>Expected output:
 <br>`Good job! :) I've marked this task as complete:`
-<br>`[E][✓] project meeting  (at: school)`
+<br><br>`[T][✓] read book`
 
 Note:
 * `[✓]` - Task is **done**.
@@ -119,8 +120,8 @@ Deletes a specific task in your current task list.
 Input: `delete 2`
 <br>Expected output:
 <br>`Alrighttt, I've successfully removed this task:`
-<br>`[D][✘] return book  (by: 2pm, Sep 25 2020)`
-<br>`Now you have a grand total of... 2 task(s) in your list! 👍🏼`
+<br>`[D][✘] return book  (by: Sunday, 2pm)`
+<br>`Now you have a grand total of... 3 task(s) in your list! 👍🏼`
     
 #### Finding a task: `find`
 Finds relevant tasks in your current task list based on keywords you provide.
