@@ -8,6 +8,7 @@
    *  [Exiting the program](#exiting-the-program): `bye`
 *  [Command Summary](#command-summary)
 
+<a id="introduction-and-flowchart"></a>
 ## Introduction and Flowchart
 FriendlyBot is your friendly todo list, that helps you to **manage three types of tasks**:
 * Todos,
@@ -18,7 +19,7 @@ FriendlyBot provides several user commands, for more functionality when managing
 These commands are shown more clearly in the flowchart below.
 <br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/blob/master/docs/FriendlyBot%20Basic%20Flowchart.png)
 
-
+<a id="quick-start"></a>
 ## Quick Start
 1. Ensure you have Java `11` or above installed in your Computer.
 1. Download the latest `ip.jar` from [here](https://github.com/elizabethcwt/ip/releases/tag/A-Jar). (Not updated)
@@ -26,7 +27,10 @@ These commands are shown more clearly in the flowchart below.
 1. Open your computer's terminal, navigate to the `ip.jar` file and run the app.
 1. Refer to the features below for details of the commands available in FriendlyBot.
 
+<a id="features"></a>
 ## Features
+
+<a id="adding-a-new-task"></a>
 ### Adding a new task
 #### Adding a todo task: `todo`
 Adds a todo task in your task list.
@@ -80,6 +84,7 @@ Note:
 * `[E]` - Task is of **event** type.
 * `[✘]` - Task is **not done**.
    
+<a id="check/update-an-existing-task"></a>
 ### Check/Update an existing task
 #### Listing all tasks: `list`
 Lists all the tasks (todo, deadline and event) in your current task list.
@@ -127,6 +132,7 @@ Input: `find book`
 <br>`Here is/are the relevant task(s) in your list:`
 <br>`1. [D][✘] return book  (by: Sunday, 2pm)`
 
+<a id="exiting-the-program"></a>
 ### Exiting the program: `bye`
 Exits FriendlyBot.
 <br>Examples:
@@ -136,6 +142,7 @@ Input: `bye`
 <br>`Hope you found this app useful! `
 <br>`See you again! :)`
 
+<a id="command-summary"></a>
 ## Command Summary
 |Action|Format|Examples|
 |--------------|----------------|----------------|
