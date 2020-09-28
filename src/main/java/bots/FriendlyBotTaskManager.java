@@ -54,9 +54,13 @@ public class FriendlyBotTaskManager extends FriendlyBot {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Oops! Looks like that file couldn't be found! 🙃");
+            handleFileNotFound();
         }
         return taskCount;
+    }
+
+    public static void handleFileNotFound() {
+        System.out.println("Oops! Looks like that file couldn't be found! 🙃");
     }
 
     /**

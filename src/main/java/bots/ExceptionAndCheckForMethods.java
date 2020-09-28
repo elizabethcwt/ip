@@ -7,9 +7,8 @@ import exception_initialisations.NoEventDescriptionException;
 import exception_initialisations.NoTodoDescriptionException;
 
 public class ExceptionAndCheckForMethods {
-    private static int lengthOfTodo = 4;
-    private static int lengthOfDeadline = 8;
-    private static int lengthOfEvent = 5;
+    private static final int lengthOfDeadline = 8;
+    private static final int lengthOfEvent = 5;
 
     /**
      * Checks for BOTH presence of description and event location for an event task.
@@ -51,6 +50,7 @@ public class ExceptionAndCheckForMethods {
     public static void checkForTodoDescription(String line) throws NoTodoDescriptionException {
 
         String lineWithoutSpaces = line.replaceAll("\\s", "");
+        int lengthOfTodo = 4;
         if (lineWithoutSpaces.length() == lengthOfTodo) {
             throw new NoTodoDescriptionException();
         }

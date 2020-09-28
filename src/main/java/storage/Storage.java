@@ -30,9 +30,13 @@ public class Storage extends FriendlyBot {
         try {
             taskCount = FriendlyBotTaskManager.readFile(tasks, taskCount, f);
         } catch (IOException e) {
-            System.out.println("Oops! Looks like we were unable to read the task info. in the text file! 😭");
+            handleReadFileError();
         }
         return taskCount;
+    }
+
+    public static void handleReadFileError() {
+        System.out.println("Oops! Looks like we were unable to read the task info. in the text file! 😭");
     }
 
     /**
@@ -50,8 +54,12 @@ public class Storage extends FriendlyBot {
         try {
             FriendlyBotTaskManager.writeToFile(tasks, taskCount, f);
         } catch (IOException e) {
-            System.out.println("Oops! Looks like we were unable to write the new task info. to the text file! 😭");
+            handleWriteFileError();
         }
         return taskCount;
+    }
+
+    public static void handleWriteFileError() {
+        System.out.println("Oops! Looks like we were unable to write the new task info. to the text file! 😭");
     }
 }
