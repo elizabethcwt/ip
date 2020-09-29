@@ -94,7 +94,7 @@ Marks specific task in your task list as done.
 <br>
 Input: `done 1`
 <br>Expected output:
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/done.png" width="350">
+<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/done1.png" width="350">
 
 Note:
 * `[✓]` - Task is **done**.
