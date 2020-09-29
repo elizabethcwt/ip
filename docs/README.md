@@ -17,6 +17,7 @@ FriendlyBot is your friendly todo list, that helps you to **manage three types o
 
 FriendlyBot provides several user commands, for more functionality when managing your tasks.
 These commands are shown more clearly in the flowchart below.
+
 <br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/blob/master/docs/FriendlyBot%20Basic%20Flowchart.png)
 
 <a id="quick-start"></a>
@@ -39,6 +40,7 @@ Adds a todo task in your task list.
 <br>
 Input: `todo read book`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/todo.png" width="300">
 
 Note:
@@ -53,10 +55,12 @@ Adds a deadline task in your task list.
 <br>
 Input: `deadline return book /by Sunday, 2pm`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline1.png" width="365">
     
 Input: `deadline return book /by 2pm, 2020-09-25`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline2.png" width="385">
   
 Note:
@@ -70,6 +74,7 @@ Adds an event task in your task list.
 <br>
 Input: `event project meeting /at school`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/event.png" width="350">
 
 Note:
@@ -85,6 +90,7 @@ Lists all the tasks (todo, deadline and event) in your current task list.
 <br>
 Input: `list`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/list.png" width="350">
 
 #### Marking tasks as done: `done`
@@ -94,6 +100,7 @@ Marks specific task in your task list as done.
 <br>
 Input: `done 1`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/done1.png" width="350">
 
 Note:
@@ -106,6 +113,7 @@ Deletes a specific task in your current task list.
 <br>
 Input: `delete 2`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/delete2.png" width="460">
     
 #### Finding a task: `find`
@@ -115,6 +123,7 @@ Finds relevant tasks in your current task list based on keywords you provide.
 <br>
 Input: `find book`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/find.png" width="360">
 
 <a id="exiting-the-program"></a>
@@ -124,17 +133,19 @@ Exits FriendlyBot.
 <br>
 Input: `bye`
 <br>Expected output:
+
 <br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/bye.png" width="260">
 
 <a id="command-summary"></a>
 ## Command Summary
+
 |Action|Format|Examples|<br>
-|--------------|----------------|----------------|<br>
-|Add todo|`todo [todo task description]`|`todo read book`|<br>
-|Add deadline|`deadline [deadline task description] /by [deadline date]`|`deadline return book /by 2pm, 2020-09-25`|<br>
-|Add event|`deadline [event task description] /at [event location]`|`event project meeting /at school`|<br>
-|List|`list`|<br>
-|Done|`done [task number in task list]`|`done 2`|<br>
-|Delete|`delete [task number in task list]`|`delete 2`|<br>
-|Find|`find [keyword(s)]`|`find book`|<br>
-|Bye|`bye`|<br>
+|--------------|----------------|----------------|
+|Add todo|`todo [todo task description]`|`todo read book`|
+|Add deadline|`deadline [deadline task description] /by [deadline date]`|`deadline return book /by 2pm, 2020-09-25`|
+|Add event|`deadline [event task description] /at [event location]`|`event project meeting /at school`|
+|List|`list`|
+|Done|`done [task number in task list]`|`done 2`|
+|Delete|`delete [task number in task list]`|`delete 2`|
+|Find|`find [keyword(s)]`|`find book`|
+|Bye|`bye`|
