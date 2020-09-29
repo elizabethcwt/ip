@@ -39,7 +39,7 @@ Adds a todo task in your task list.
 <br>
 Input: `todo read book`
 <br>Expected output:
-<br><img src="todo.png" style = "width=100"/>
+<br><img src="todo.png" width="350"/>
 
 Note:
 * `[T]` - Task is of **todo** type.
@@ -53,11 +53,11 @@ Adds a deadline task in your task list.
 <br>
 Input: `deadline return book /by Sunday, 2pm`
 <br>Expected output:
-<br><img src="deadline1.png" style = "width=150"/>
+<br><img src="deadline1.png" width="425"/>
     
 Input: `deadline return book /by 2pm, 2020-09-25`
 <br>Expected output:
-<br><img src="deadline2.png" style = "width=160"/>
+<br><img src="deadline2.png" width="475"/>
   
 Note:
 * `[D]` - Task is of **deadline** type.
@@ -70,7 +70,7 @@ Adds an event task in your task list.
 <br>
 Input: `event project meeting /at school`
 <br>Expected output:
-<br><img src="event.png" style = "width=100"/>
+<br><img src="event.png" width="425"/>
 
 Note:
 * `[E]` - Task is of **event** type.
@@ -85,7 +85,7 @@ Lists all the tasks (todo, deadline and event) in your current task list.
 <br>
 Input: `list`
 <br>Expected output:
-<br><img src="list.png" style = "width=100"/>
+<br><img src="list.png" width="425"/>
 
 #### Marking tasks as done: `done`
 Marks specific task in your task list as done.
@@ -94,7 +94,7 @@ Marks specific task in your task list as done.
 <br>
 Input: `done 1`
 <br>Expected output:
-<br><img src="done1.png" style = "width=160"/>
+<br><img src="done1.png" width="450"/>
 
 Note:
 * `[✓]` - Task is **done**.
@@ -106,7 +106,7 @@ Deletes a specific task in your current task list.
 <br>
 Input: `delete 2`
 <br>Expected output:
-<br><img src="delete2.png" style = "width=170"/>
+<br><img src="delete2.png" width="550"/>
     
 #### Finding a task: `find`
 Finds relevant tasks in your current task list based on keywords you provide.
@@ -115,7 +115,7 @@ Finds relevant tasks in your current task list based on keywords you provide.
 <br>
 Input: `find book`
 <br>Expected output
-<br><img src="find.png" style = "width=120"/>
+<br><img src="find.png" width="450"/>
 
 <a id="exiting-the-program"></a>
 ### Exiting the program: `bye`
@@ -124,7 +124,7 @@ Exits FriendlyBot.
 <br>
 Input: `bye`
 <br>Expected output:
-<br><img src="bye.png" style = "width=100"/>
+<br><img src="bye.png" width="290"/>
 
 <a id="command-summary"></a>
 ## Command Summary
