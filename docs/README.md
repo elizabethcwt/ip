@@ -17,7 +17,7 @@ FriendlyBot is your friendly todo list, that helps you to **manage three types o
 
 FriendlyBot provides several user commands, for more functionality when managing your tasks.
 These commands are shown more clearly in the flowchart below.
-<br><img src="FriendlyBot%20Basic%20Flowchart.png" style = "width=300"/>
+<br><br><img src="FriendlyBot%20Basic%20Flowchart.png" style = "width=300"/>
 
 <a id="quick-start"></a>
 ## Quick Start
