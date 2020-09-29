@@ -19,6 +19,7 @@ FriendlyBot provides several user commands, for more functionality when managing
 These commands are shown more clearly in the flowchart below.
 
 <br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/blob/master/docs/FriendlyBot%20Basic%20Flowchart.png)
+<br><br>![FriendlyBot Basic Flowchart](FriendlyBot%20Basic%20Flowchart.png)
 
 <a id="quick-start"></a>
 ## Quick Start
