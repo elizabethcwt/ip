@@ -140,12 +140,12 @@ Input: `bye`
 ## Command Summary
 
 |Action|Format|Examples|<br>
-|--------------|----------------|----------------|
-|Add todo|`todo [todo task description]`|`todo read book`|
-|Add deadline|`deadline [deadline task description] /by [deadline date]`|`deadline return book /by 2pm, 2020-09-25`|
-|Add event|`deadline [event task description] /at [event location]`|`event project meeting /at school`|
-|List|`list`|
-|Done|`done [task number in task list]`|`done 2`|
-|Delete|`delete [task number in task list]`|`delete 2`|
-|Find|`find [keyword(s)]`|`find book`|
-|Bye|`bye`|
+|--------------|----------------|----------------
+|Add todo|`todo [todo task description]`|`todo read book`
+|Add deadline|`deadline [deadline task description] /by [deadline date]`|`deadline return book /by 2pm, 2020-09-25`
+|Add event|`deadline [event task description] /at [event location]`|`event project meeting /at school`
+|List|`list`
+|Done|`done [task number in task list]`|`done 2`
+|Delete|`delete [task number in task list]`|`delete 2`
+|Find|`find [keyword(s)]`|`find book`
+|Bye|`bye`
