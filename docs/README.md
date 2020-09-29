@@ -17,8 +17,6 @@ FriendlyBot is your friendly todo list, that helps you to **manage three types o
 
 FriendlyBot provides several user commands, for more functionality when managing your tasks.
 These commands are shown more clearly in the flowchart below.
-
-<br><br>![FriendlyBot Basic Flowchart](https://github.com/elizabethcwt/ip/blob/master/docs/FriendlyBot%20Basic%20Flowchart.png)
 <br><br>![FriendlyBot Basic Flowchart](FriendlyBot%20Basic%20Flowchart.png)
 
 <a id="quick-start"></a>
@@ -41,8 +39,7 @@ Adds a todo task in your task list.
 <br>
 Input: `todo read book`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/todo.png" width="300">
+<br><br>![todo expected outcome](todo.png)
 
 Note:
 * `[T]` - Task is of **todo** type.
@@ -56,13 +53,11 @@ Adds a deadline task in your task list.
 <br>
 Input: `deadline return book /by Sunday, 2pm`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline1.png" width="365">
+<br><br>![deadline1 expected outcome](deadline1.png)
     
 Input: `deadline return book /by 2pm, 2020-09-25`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/deadline2.png" width="385">
+<br><br>![deadline2 expected outcome](deadline2.png)
   
 Note:
 * `[D]` - Task is of **deadline** type.
@@ -75,8 +70,7 @@ Adds an event task in your task list.
 <br>
 Input: `event project meeting /at school`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/event.png" width="350">
+<br><br>![event expected outcome](event.png)
 
 Note:
 * `[E]` - Task is of **event** type.
@@ -91,8 +85,7 @@ Lists all the tasks (todo, deadline and event) in your current task list.
 <br>
 Input: `list`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/list.png" width="350">
+<br><br>![list expected outcome](list.png)
 
 #### Marking tasks as done: `done`
 Marks specific task in your task list as done.
@@ -101,8 +94,7 @@ Marks specific task in your task list as done.
 <br>
 Input: `done 1`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/done1.png" width="350">
+<br><br>![done1 expected outcome](done1.png)
 
 Note:
 * `[✓]` - Task is **done**.
@@ -114,8 +106,7 @@ Deletes a specific task in your current task list.
 <br>
 Input: `delete 2`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/delete2.png" width="460">
+<br><br>![delete2 expected outcome](delete2.png)
     
 #### Finding a task: `find`
 Finds relevant tasks in your current task list based on keywords you provide.
@@ -123,9 +114,8 @@ Finds relevant tasks in your current task list based on keywords you provide.
 <br>Examples:
 <br>
 Input: `find book`
-<br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/find.png" width="360">
+<br>Expected output
+<br><br>![find expected outcome](find.png)
 
 <a id="exiting-the-program"></a>
 ### Exiting the program: `bye`
@@ -134,8 +124,7 @@ Exits FriendlyBot.
 <br>
 Input: `bye`
 <br>Expected output:
-
-<br><br><img src="https://github.com/elizabethcwt/ip/blob/master/docs/bye.png" width="260">
+<br><br>![bye expected outcome](bye.png)
 
 <a id="command-summary"></a>
 ## Command Summary
