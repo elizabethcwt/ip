@@ -6,6 +6,7 @@
    *  [Adding a new task](#adding-a-new-task): `todo` `deadline` `event`
    *  [Check/Update an existing task](#check/update-an-existing-task): `list` `done` `delete` `find`
    *  [Exiting the program](#exiting-the-program): `bye`
+   *  [Saving Data](#saving-data)
 *  [Command Summary](#command-summary)
 
 <a id="introduction-and-flowchart"></a>
@@ -125,6 +126,12 @@ Exits FriendlyBot.
 Input: `bye`
 <br>Expected output:
 <br><img src="bye.png" width="290"/>
+
+<a id="saving-data"></a>
+### Saving Data
+The tasks that you have added, deleted, or edited in any way will be saved externally in a file.
+<br>If this file doesn't already exist in your computer, a new file will be created.
+<br>When you re-run FriendlyBot, the data (i.e. tasks in your friendly task list) will be loaded, and entering the `list` command will trigger the display of your updated task list, where you left off previously.
 
 <a id="command-summary"></a>
 ## Command Summary
