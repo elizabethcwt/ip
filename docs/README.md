@@ -44,7 +44,7 @@ Input: `todo read book`
 
 Note:
 * `[T]` - Task is of **todo** type.
-* `[✘]` - Task is **not done**.
+* `[N]` - Task is **not done**.
    
 #### Adding a deadline task: `deadline`
 Adds a deadline task in your task list.
@@ -62,7 +62,7 @@ Input: `deadline return book /by 2pm, 2020-09-25`
   
 Note:
 * `[D]` - Task is of **deadline** type.
-* `[✘]` - Task is **not done**.
+* `[N]` - Task is **not done**.
 
 #### Adding an event task: `event`
 Adds an event task in your task list.
@@ -75,7 +75,7 @@ Input: `event project meeting /at school`
 
 Note:
 * `[E]` - Task is of **event** type.
-* `[✘]` - Task is **not done**.
+* `[N]` - Task is **not done**.
    
 <a id="check/update-an-existing-task"></a>
 ### Check/Update an existing task
@@ -98,7 +98,7 @@ Input: `done 1`
 <br><img src="done1.png" width="450"/>
 
 Note:
-* `[✓]` - Task is **done**.
+* `[Y]` - Task is **done**.
 
 #### Deleting a task: `delete`
 Deletes a specific task in your current task list.
