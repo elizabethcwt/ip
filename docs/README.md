@@ -40,7 +40,7 @@ Adds a todo task in your task list.
 <br>
 Input: `todo read book`
 <br>Expected output:
-<br><img src="todo.png" width="350"/>
+<br><img src="todo.png" width="450"/>
 
 Note:
 * `[T]` - Task is of **todo** type.
